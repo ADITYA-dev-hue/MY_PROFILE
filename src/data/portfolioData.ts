@@ -20,7 +20,6 @@ export const PERSONAL_INFO = {
   linkedinDisplay: 'aditya-prakash0',
   vercel: 'https://vercel.com/aditya-prakashs-projects-25df78b5',
   vercelDisplay: 'aditya-prakashs-projects',
-  customDomain: 'adityaprakash.dev',
   resumeFileName: 'Aditya_Prakash_Resume.pdf',
   avatarImage: '/profile.jpg',
   experienceYears: '1+',
@@ -226,7 +225,7 @@ export const PROJECTS: Project[] = [
     ],
     architectureSummary: 'High-performance React & TypeScript application leveraging TanStack, Chart.js, Recharts, and Three.js for multi-dimensional sports telemetry visualization.',
     githubUrl: 'https://github.com/ADITYA-dev-hue/Player-Analysis',
-    imageUrl: '/src/assets/images/project_ipl_dashboard.jpg',
+    imageUrl: '/project_ipl_dashboard.jpg',
     featured: true,
     stars: 1,
   },
@@ -246,7 +245,7 @@ export const PROJECTS: Project[] = [
     ],
     architectureSummary: 'NDAP national datasets transformed via Power Query and DAX measures into an interactive, multi-region geospatial energy intelligence dashboard.',
     githubUrl: 'https://github.com/ADITYA-dev-hue/POWER-BI-DASHBOARD',
-    imageUrl: '/src/assets/images/project_power_generation.jpg',
+    imageUrl: '/project_power_generation.jpg',
     featured: true,
     stars: 1,
   },
@@ -266,7 +265,7 @@ export const PROJECTS: Project[] = [
     ],
     architectureSummary: 'Modern JavaScript application seamlessly integrating Google Gemini API endpoints and client-side LocalStorage session management.',
     githubUrl: 'https://github.com/ADITYA-dev-hue/AI-Edu-Prep-NEW-',
-    imageUrl: '/src/assets/images/project_eduprep_ai.jpg',
+    imageUrl: '/project_eduprep_ai.jpg',
     featured: true,
     stars: 1,
   },
@@ -333,18 +332,4 @@ export const CODING_PROFILES: CodingProfile[] = [
     color: 'from-blue-600 to-sky-700',
   },
 ];
-
-export const VERCEL_DOMAIN_CONFIG = {
-  customDomain: 'adityaprakash.dev',
-  projectUrl: 'https://vercel.com/aditya-prakashs-projects-25df78b5',
-  aRecord: '76.76.21.21',
-  cnameRecord: 'cname.vercel-dns.com',
-  deploySteps: [
-    'Push this project to your GitHub repository (github.com/ADITYA-dev-hue/portfolio).',
-    'Log in to Vercel (vercel.com/aditya-prakashs-projects-25df78b5) and click "Add New Project" -> Import your GitHub repo.',
-    'Framework Preset will auto-detect "Vite", Build Command: "npm run build", Output Directory: "dist".',
-    'Click "Deploy" to generate your live vercel.app preview URL in ~25 seconds.',
-    'Under Project Settings -> Domains, enter your custom domain and set up the DNS records above.',
-  ],
-};
 

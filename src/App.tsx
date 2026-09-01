@@ -8,11 +8,9 @@ import { ResumeSection } from './components/ResumeSection';
 import { ContactSection } from './components/ContactSection';
 import { Footer } from './components/Footer';
 import { ResumeModal } from './components/ResumeModal';
-import { VercelDeployModal } from './components/VercelDeployModal';
 
 export default function App() {
   const [resumeModalOpen, setResumeModalOpen] = useState<boolean>(false);
-  const [deployGuideOpen, setDeployGuideOpen] = useState<boolean>(false);
 
   useEffect(() => {
     // Standard Dark Mode presentation active by default
@@ -33,7 +31,6 @@ export default function App() {
       {/* Global Header & Navigation */}
       <Navbar
         onOpenResumeModal={() => setResumeModalOpen(true)}
-        onOpenDeployGuide={() => setDeployGuideOpen(true)}
       />
 
       {/* Main Content Sections */}
@@ -58,17 +55,12 @@ export default function App() {
       </main>
 
       {/* High-Contrast Editorial Footer */}
-      <Footer onOpenDeployGuide={() => setDeployGuideOpen(true)} />
+      <Footer />
 
       {/* Interactive Modals */}
       <ResumeModal
         isOpen={resumeModalOpen}
         onClose={() => setResumeModalOpen(false)}
-      />
-
-      <VercelDeployModal
-        isOpen={deployGuideOpen}
-        onClose={() => setDeployGuideOpen(false)}
       />
 
     </div>

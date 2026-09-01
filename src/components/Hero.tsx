@@ -1,4 +1,4 @@
-import React, { useState, useRef, useEffect } from 'react';
+import React, { useState, useRef } from 'react';
 import { 
   Download, 
   Linkedin, 
@@ -6,15 +6,15 @@ import {
   Globe, 
   FileText, 
   Sparkles,
-  BarChart3,
-  BrainCircuit,
-  Database,
   Camera,
-  Upload
+  Upload,
+  User
 } from 'lucide-react';
 import { PERSONAL_INFO } from '../data/portfolioData';
 import { generateResumePDF } from '../utils/pdfGenerator';
 import { SkillLogo } from './SkillLogo';
+import defaultPortrait from '../assets/images/aditya_sunglasses_portrait_1787200831564.jpg';
+import secondaryPortrait from '../assets/images/aditya_profile_bg_1787578881519.jpg';
 
 interface HeroProps {
   onOpenResumeModal: () => void;
@@ -22,26 +22,30 @@ interface HeroProps {
 
 export const Hero: React.FC<HeroProps> = ({ onOpenResumeModal }) => {
   const fileInputRef = useRef<HTMLInputElement>(null);
-  const [avatarSrc, setAvatarSrc] = useState<string>(() => {
-    return localStorage.getItem('aditya_custom_avatar') || PERSONAL_INFO.avatarImage;
-  });
-  const [imgErrorCount, setImgErrorCount] = useState(0);
-
-  const fallbackImages = [
+  
+  const fallbackList = [
     '/profile.jpg',
-    '/profile.jpeg',
+    defaultPortrait,
+    secondaryPortrait,
     '/profile.png',
-    '/aditya.jpg',
-    '/aditya.png',
-    '/src/assets/images/aditya_sunglasses_portrait_1787200831564.jpg',
-    '/src/assets/images/aditya_profile_bg_1787578881519.jpg'
+    '/aditya.jpg'
   ];
 
+  const [avatarIndex, setAvatarIndex] = useState(0);
+  const [avatarSrc, setAvatarSrc] = useState<string>(() => {
+    const saved = localStorage.getItem('aditya_custom_avatar');
+    if (saved) return saved;
+    return '/profile.jpg';
+  });
+  const [hasImageFailedCompletely, setHasImageFailedCompletely] = useState(false);
+
   const handleImageError = () => {
-    if (imgErrorCount < fallbackImages.length) {
-      const nextSrc = fallbackImages[imgErrorCount];
-      setImgErrorCount(prev => prev + 1);
-      setAvatarSrc(nextSrc);
+    const nextIdx = avatarIndex + 1;
+    if (nextIdx < fallbackList.length) {
+      setAvatarIndex(nextIdx);
+      setAvatarSrc(fallbackList[nextIdx]);
+    } else {
+      setHasImageFailedCompletely(true);
     }
   };
 
@@ -52,6 +56,7 @@ export const Hero: React.FC<HeroProps> = ({ onOpenResumeModal }) => {
       reader.onload = () => {
         const result = reader.result as string;
         setAvatarSrc(result);
+        setHasImageFailedCompletely(false);
         localStorage.setItem('aditya_custom_avatar', result);
       };
       reader.readAsDataURL(file);
@@ -194,14 +199,32 @@ export const Hero: React.FC<HeroProps> = ({ onOpenResumeModal }) => {
             <div className="relative w-full max-w-sm sm:max-w-md">
               
               {/* Portrait Container */}
-              <div className="group relative rounded-2xl overflow-hidden shadow-2xl bg-white dark:bg-zinc-950/80 border border-zinc-200 dark:border-zinc-800/80">
-                <img
-                  src={avatarSrc}
-                  alt="Aditya Prakash - Data Science & AI Developer"
-                  className="w-full h-[400px] sm:h-[460px] object-cover object-top filter contrast-105 transition-transform duration-500 group-hover:scale-[1.02]"
-                  referrerPolicy="no-referrer"
-                  onError={handleImageError}
-                />
+              <div className="group relative rounded-2xl overflow-hidden shadow-2xl bg-zinc-900 border border-zinc-200 dark:border-zinc-800/80 w-full h-[400px] sm:h-[460px] flex items-center justify-center">
+                {!hasImageFailedCompletely ? (
+                  <img
+                    src={avatarSrc}
+                    alt="Aditya Prakash - Data Science & AI Developer"
+                    className="w-full h-full object-cover object-top filter contrast-105 transition-transform duration-500 group-hover:scale-[1.02]"
+                    referrerPolicy="no-referrer"
+                    onError={handleImageError}
+                  />
+                ) : (
+                  <div className="w-full h-full flex flex-col items-center justify-center bg-gradient-to-br from-zinc-950 via-zinc-900 to-red-950 p-6 text-center">
+                    <div className="w-24 h-24 rounded-full bg-red-600/20 border-2 border-red-500/40 flex items-center justify-center text-red-500 mb-4 shadow-xl">
+                      <span className="font-display font-black text-3xl tracking-wider">AP</span>
+                    </div>
+                    <h3 className="font-bold text-white text-base">Aditya Prakash</h3>
+                    <p className="text-xs text-zinc-400 mt-1 max-w-[200px]">Data Science &amp; AI Developer</p>
+                    <button
+                      type="button"
+                      onClick={() => fileInputRef.current?.click()}
+                      className="mt-4 inline-flex items-center gap-2 px-3 py-1.5 rounded-lg bg-red-600 hover:bg-red-700 text-white text-xs font-semibold cursor-pointer shadow-md transition-colors"
+                    >
+                      <Upload className="w-3.5 h-3.5" />
+                      <span>Upload Profile Photo</span>
+                    </button>
+                  </div>
+                )}
 
                 {/* Bottom gradient fade */}
                 <div className="absolute inset-0 bg-gradient-to-t from-zinc-950/90 via-transparent to-transparent pointer-events-none"></div>

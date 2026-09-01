@@ -4,17 +4,12 @@ import {
   Linkedin, 
   ArrowUp, 
   Download, 
-  Globe, 
 } from 'lucide-react';
 import { PERSONAL_INFO } from '../data/portfolioData';
 import { generateResumePDF } from '../utils/pdfGenerator';
 import { SkillLogo } from './SkillLogo';
 
-interface FooterProps {
-  onOpenDeployGuide: () => void;
-}
-
-export const Footer: React.FC<FooterProps> = ({ onOpenDeployGuide }) => {
+export const Footer: React.FC = () => {
   const scrollToTop = () => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
@@ -47,18 +42,6 @@ export const Footer: React.FC<FooterProps> = ({ onOpenDeployGuide }) => {
             <p className="text-xs text-zinc-400 leading-relaxed max-w-sm">
               Computer Science &amp; Engineering undergraduate at Lovely Professional University specialized in Data Analytics, Python, SQL, C/C++, Java, Power BI, and Gemini AI.
             </p>
-
-            {/* Custom Domain / Vercel Badge */}
-            <div className="pt-1">
-              <button
-                onClick={onOpenDeployGuide}
-                className="inline-flex items-center gap-2 px-3 py-1.5 rounded-lg bg-zinc-950 hover:bg-zinc-800 border border-zinc-700 text-xs text-zinc-300 transition-colors cursor-pointer"
-                title="View Vercel & Custom Domain Configuration"
-              >
-                <Globe className="w-3.5 h-3.5 text-red-500" />
-                <span>Hosted on Vercel • <strong>{PERSONAL_INFO.customDomain}</strong></span>
-              </button>
-            </div>
           </div>
 
           {/* Quick Navigation Links (Span 3) */}

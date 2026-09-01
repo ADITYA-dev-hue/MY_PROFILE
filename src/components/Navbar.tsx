@@ -5,7 +5,6 @@ import {
   Linkedin, 
   Menu, 
   X, 
-  Globe,
   ExternalLink
 } from 'lucide-react';
 import { PERSONAL_INFO } from '../data/portfolioData';
@@ -14,12 +13,10 @@ import { SkillLogo } from './SkillLogo';
 
 interface NavbarProps {
   onOpenResumeModal: () => void;
-  onOpenDeployGuide: () => void;
 }
 
 export const Navbar: React.FC<NavbarProps> = ({
   onOpenResumeModal,
-  onOpenDeployGuide,
 }) => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -108,24 +105,13 @@ export const Navbar: React.FC<NavbarProps> = ({
 
             {/* Action CTAs */}
             <div className="hidden lg:flex items-center gap-2.5">
-              {/* Custom Domain Badge */}
-              <button
-                id="vercel-status-btn"
-                onClick={onOpenDeployGuide}
-                title="Vercel & Custom Domain Setup"
-                className="px-2.5 py-1.5 text-[11px] font-mono font-medium text-zinc-700 dark:text-zinc-300 bg-zinc-100 hover:bg-zinc-200 dark:bg-zinc-900 dark:hover:bg-zinc-800 border border-zinc-200 dark:border-zinc-800 rounded-lg flex items-center gap-1.5 transition-all"
-              >
-                <Globe className="w-3.5 h-3.5 text-red-600 dark:text-red-500" />
-                <span>{PERSONAL_INFO.customDomain}</span>
-              </button>
-
               {/* Vercel Projects Space */}
               <a
                 id="nav-vercel-link"
                 href={PERSONAL_INFO.vercel}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="p-2 text-zinc-600 dark:text-zinc-300 hover:text-zinc-950 dark:hover:text-white hover:bg-zinc-100 dark:hover:bg-zinc-900 rounded-lg transition-colors flex items-center gap-1.5 text-xs font-semibold"
+                className="p-2 text-zinc-600 dark:text-zinc-300 hover:text-zinc-950 dark:hover:text-white hover:bg-zinc-100 dark:bg-zinc-900/40 dark:hover:bg-zinc-900 border border-transparent dark:border-zinc-800 rounded-lg transition-colors flex items-center gap-1.5 text-xs font-semibold"
                 aria-label="Aditya Prakash Vercel Projects"
                 title="View Vercel Deployments"
               >

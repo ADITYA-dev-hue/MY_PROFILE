@@ -15,6 +15,7 @@ import {
 import confetti from 'canvas-confetti';
 import { PERSONAL_INFO } from '../data/portfolioData';
 import { SkillLogo } from './SkillLogo';
+import workspaceImg from '../assets/images/workspace_setup_laptop_1787149887786.jpg';
 
 export const ContactSection: React.FC = () => {
   const [formData, setFormData] = useState({
@@ -221,10 +222,16 @@ export const ContactSection: React.FC = () => {
             {/* Workstation Laptop Image */}
             <div className="relative rounded-2xl overflow-hidden border border-zinc-200 dark:border-zinc-800 bg-white dark:bg-zinc-950 shadow-xl dark:shadow-2xl">
               <img
-                src="/src/assets/images/workspace_setup_laptop_1787149887786.jpg"
+                src={workspaceImg || '/workspace.jpg'}
                 alt="Aditya Prakash Developer Setup"
                 className="w-full h-44 sm:h-52 object-cover filter contrast-105"
                 referrerPolicy="no-referrer"
+                onError={(e) => {
+                  const target = e.currentTarget;
+                  if (target.src !== window.location.origin + '/workspace.jpg') {
+                    target.src = '/workspace.jpg';
+                  }
+                }}
               />
               <div className="absolute inset-0 bg-gradient-to-t from-zinc-950/80 via-transparent to-transparent pointer-events-none"></div>
 
