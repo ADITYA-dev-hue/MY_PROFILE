@@ -98,7 +98,7 @@ export const Footer: React.FC = () => {
                 className="flex items-center gap-2.5 px-3.5 py-2 rounded-xl bg-zinc-950 hover:bg-zinc-800 text-xs font-semibold text-zinc-200 hover:text-white border border-zinc-700 hover:border-red-900/60 transition-colors"
               >
                 <Linkedin className="w-4 h-4 text-red-500" />
-                <span>LinkedIn / aditya-prakash-48a349321</span>
+                <span>LinkedIn / {PERSONAL_INFO.linkedinDisplay}</span>
               </a>
 
               <a

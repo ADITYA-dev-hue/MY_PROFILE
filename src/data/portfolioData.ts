@@ -7,7 +7,7 @@ export const PERSONAL_INFO = {
   tagline: 'Crafting intelligent data pipelines, predictive models, and modern web applications with algorithmic rigor.',
   bio: 'Computer Science & Engineering undergraduate at Lovely Professional University specializing in Python, SQL, C/C++, Java, Machine Learning, Power BI analytics, and full-stack AI development. Passionate about solving complex problems and turning raw data into high-impact digital experiences.',
   email: 'aditya04112006@gmail.com',
-  phone: '+91 7619448694',
+  phone: '+91 7819448694',
   location: 'Kapurthala, Punjab – 144411',
   detailedLocation: 'Lovely Professional University, Jalandhar-Delhi G.T. Road, Phagwara, Punjab, India, 144411',
   hometown: 'Kapurthala, Punjab / Bathinda Cantt',
@@ -190,6 +190,34 @@ export const CERTIFICATIONS: Certification[] = [
     skills: ['C Programming', 'C++ OOP', 'Pointers & Dynamic Memory', 'Data Structures', 'File Handling & Algorithms'],
     accentColor: '#DC2626',
     type: 'bgtechvista'
+  },
+];
+
+export const RESUME_CERTIFICATES = [
+  {
+    title: 'Introduction to Front-End Development',
+    issuer: 'Meta & Coursera',
+    date: "Aug' 2026",
+  },
+  {
+    title: 'Google AI Professional Certificate',
+    issuer: 'Coursera & Google',
+    date: "Aug' 2026",
+  },
+  {
+    title: 'Database Management System',
+    issuer: 'Infosys',
+    date: "July' 2026",
+  },
+  {
+    title: 'Programming in Java',
+    issuer: 'NIIT × LPU',
+    date: "May' 2026",
+  },
+  {
+    title: 'Professional Course in C/C++',
+    issuer: 'BG TechVista',
+    date: "July' 2025",
   },
 ];
 

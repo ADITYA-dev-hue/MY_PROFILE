@@ -8,7 +8,7 @@ import {
   FileText
 } from 'lucide-react';
 import confetti from 'canvas-confetti';
-import { PERSONAL_INFO, PROJECTS, CERTIFICATIONS, EDUCATION_LIST, TRAINING_EXPERIENCE } from '../data/portfolioData';
+import { PERSONAL_INFO, PROJECTS, RESUME_CERTIFICATES, EDUCATION_LIST, TRAINING_EXPERIENCE } from '../data/portfolioData';
 import { generateResumePDF } from '../utils/pdfGenerator';
 
 interface ResumeModalProps {
@@ -46,8 +46,8 @@ export const ResumeModal: React.FC<ResumeModalProps> = ({ isOpen, onClose }) => 
   const copyPlainTextResume = () => {
     const text = `
 Aditya Prakash
-LinkedIn: https://www.linkedin.com/in/aditya-prakash0/  |  Email: ${PERSONAL_INFO.email}
-Github: https://github.com/ADITYA-dev-hue  |  Mobile: ${PERSONAL_INFO.phone}
+LinkedIn: ${PERSONAL_INFO.linkedin}  |  Email: ${PERSONAL_INFO.email}
+Github: ${PERSONAL_INFO.github}  |  Mobile: ${PERSONAL_INFO.phone}
 
 SKILLS:
 - Languages: C++, Python, C, Java, SQL
@@ -169,7 +169,7 @@ EDUCATION:
               <span>
                 <strong>LinkedIn:</strong>{' '}
                 <a href={PERSONAL_INFO.linkedin} target="_blank" rel="noreferrer" className="text-blue-700 hover:underline">
-                  https://www.linkedin.com/in/aditya-prakash0/
+                  {PERSONAL_INFO.linkedin}
                 </a>
               </span>
               <span>
@@ -180,7 +180,7 @@ EDUCATION:
               <span>
                 <strong>Github:</strong>{' '}
                 <a href={PERSONAL_INFO.github} target="_blank" rel="noreferrer" className="text-blue-700 hover:underline">
-                  https://github.com/ADITYA-dev-hue
+                  {PERSONAL_INFO.github}
                 </a>
               </span>
               <span>
@@ -256,7 +256,7 @@ EDUCATION:
               Certificates
             </h3>
             <div className="space-y-0.5 text-xs text-zinc-800">
-              {CERTIFICATIONS.map((cert, idx) => (
+              {RESUME_CERTIFICATES.map((cert, idx) => (
                 <div key={idx} className="flex justify-between items-baseline">
                   <span>•  {cert.title} — {cert.issuer}</span>
                   <span className="text-[11px] text-zinc-600">{cert.date}</span>

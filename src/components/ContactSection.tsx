@@ -41,7 +41,7 @@ export const ContactSection: React.FC = () => {
   };
 
   const handleCopyPhone = () => {
-    navigator.clipboard.writeText('7619448694');
+    navigator.clipboard.writeText(PERSONAL_INFO.phone);
     setCopiedPhone(true);
     setTimeout(() => setCopiedPhone(false), 2000);
   };
@@ -190,7 +190,7 @@ export const ContactSection: React.FC = () => {
                 className="inline-flex items-center gap-1.5 text-xs text-zinc-600 dark:text-zinc-400 hover:text-red-600 dark:hover:text-white transition-colors font-semibold"
               >
                 <Linkedin className="w-4 h-4 text-red-600 dark:text-[#ef4444]" />
-                <span>LinkedIn / aditya-prakash-48a349321</span>
+                <span>LinkedIn / {PERSONAL_INFO.linkedinDisplay}</span>
               </a>
               <span className="text-zinc-300 dark:text-zinc-800">•</span>
               <a

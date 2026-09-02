@@ -1,5 +1,5 @@
 import { jsPDF } from 'jspdf';
-import { PERSONAL_INFO, CERTIFICATIONS } from '../data/portfolioData';
+import { PERSONAL_INFO, RESUME_CERTIFICATES } from '../data/portfolioData';
 
 /**
  * Generates and downloads an ATS-compliant, pixel-precise single-page PDF Resume
@@ -34,12 +34,12 @@ export function generateResumePDF(): void {
   doc.setTextColor(darkGray[0], darkGray[1], darkGray[2]);
 
   // Contact Row 1
-  const contactRow1 = `LinkedIn: https://www.linkedin.com/in/aditya-prakash0/       Email: ${PERSONAL_INFO.email}`;
+  const contactRow1 = `LinkedIn: ${PERSONAL_INFO.linkedin}       Email: ${PERSONAL_INFO.email}`;
   doc.text(contactRow1, pageWidth / 2, y, { align: 'center' });
   y += 11;
 
   // Contact Row 2
-  const contactRow2 = `Github: https://github.com/ADITYA-dev-hue       Mobile: ${PERSONAL_INFO.phone}`;
+  const contactRow2 = `Github: ${PERSONAL_INFO.github}       Mobile: ${PERSONAL_INFO.phone}`;
   doc.text(contactRow2, pageWidth / 2, y, { align: 'center' });
   y += 12;
 
@@ -180,7 +180,7 @@ export function generateResumePDF(): void {
   // --- 4. CERTIFICATES ---
   addSectionHeader('Certificates');
 
-  CERTIFICATIONS.forEach((cert) => {
+  RESUME_CERTIFICATES.forEach((cert) => {
     doc.setFont('helvetica', 'normal');
     doc.setFontSize(8.2);
     doc.text(`•  ${cert.title} — ${cert.issuer}`, margin + 8, y);
