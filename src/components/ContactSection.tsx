@@ -15,6 +15,7 @@ import {
 import confetti from 'canvas-confetti';
 import { PERSONAL_INFO } from '../data/portfolioData';
 import { SkillLogo } from './SkillLogo';
+import { ScrollReveal } from './ScrollReveal';
 import workspaceImg from '../assets/images/workspace_setup_laptop_1787149887786.jpg';
 
 export const ContactSection: React.FC = () => {
@@ -77,7 +78,8 @@ export const ContactSection: React.FC = () => {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 items-center">
           
           {/* LEFT COLUMN: Let's Work Together & Contact Details (Span 6) */}
-          <div className="lg:col-span-6 space-y-6 text-left">
+          <ScrollReveal delay={0.05} distance={28} className="lg:col-span-6">
+            <div className="space-y-6 text-left">
             
             <div className="space-y-3">
               <h2 className="font-display text-4xl sm:text-5xl lg:text-6xl uppercase tracking-wider text-zinc-950 dark:text-white font-bold leading-tight">
@@ -86,7 +88,7 @@ export const ContactSection: React.FC = () => {
               </h2>
 
               <p className="text-xs sm:text-sm text-zinc-600 dark:text-zinc-400 leading-relaxed max-w-md">
-                I'm actively seeking SDE internship and full-time entry-level opportunities across Software Engineering, Data Analytics, and AI. Let's connect.
+                I'm actively seeking AI-Accelerated Full-Stack Data Developer internship and full-time entry-level opportunities across AI Engineering, Data Analytics, and Full-Stack Development. Let's connect.
               </p>
 
               {/* Red Pill Button */}
@@ -200,7 +202,7 @@ export const ContactSection: React.FC = () => {
                 className="inline-flex items-center gap-1.5 text-xs text-zinc-600 dark:text-zinc-400 hover:text-amber-400 dark:hover:text-amber-300 transition-colors font-semibold"
               >
                 <SkillLogo name="leetcode" className="w-4 h-4" />
-                <span>LeetCode / x2gyI6JfIR (94 Solved)</span>
+                <span>LeetCode / x2gyI6JfIR</span>
               </a>
               <span className="text-zinc-300 dark:text-zinc-800">•</span>
               <a
@@ -214,10 +216,12 @@ export const ContactSection: React.FC = () => {
               </a>
             </div>
 
-          </div>
+            </div>
+          </ScrollReveal>
 
           {/* RIGHT COLUMN: Laptop Mockup Graphic & Fast Form (Span 6) */}
-          <div className="lg:col-span-6 space-y-6">
+          <ScrollReveal delay={0.2} distance={28} className="lg:col-span-6">
+            <div className="space-y-6">
             
             {/* Workstation Laptop Image */}
             <div className="relative rounded-2xl overflow-hidden border border-zinc-200 dark:border-zinc-800 bg-white dark:bg-zinc-950 shadow-xl dark:shadow-2xl">
@@ -292,7 +296,7 @@ export const ContactSection: React.FC = () => {
                   <input
                     type="text"
                     name="roleOrCompany"
-                    placeholder="Company / Hiring Role (e.g. SDE-1 / Data Analyst)"
+                    placeholder="Company / Hiring Role (e.g. AI / Full-Stack Data Developer)"
                     value={formData.roleOrCompany}
                     onChange={handleInputChange}
                     className="w-full px-3 py-2 rounded-lg bg-zinc-50 dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 text-zinc-900 dark:text-white text-xs placeholder:text-zinc-400 dark:placeholder:text-zinc-600 focus:border-red-600 focus:outline-none"
@@ -320,7 +324,8 @@ export const ContactSection: React.FC = () => {
               )}
             </div>
 
-          </div>
+            </div>
+          </ScrollReveal>
 
         </div>
 

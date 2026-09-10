@@ -4,10 +4,10 @@ import { Hero } from './components/Hero';
 import { ProjectsSection } from './components/ProjectsSection';
 import { SkillsSection } from './components/SkillsSection';
 import { ProcessAndEducation } from './components/ProcessAndEducation';
-import { ResumeSection } from './components/ResumeSection';
 import { ContactSection } from './components/ContactSection';
 import { Footer } from './components/Footer';
 import { ResumeModal } from './components/ResumeModal';
+import { ScrollReveal } from './components/ScrollReveal';
 
 export default function App() {
   const [resumeModalOpen, setResumeModalOpen] = useState<boolean>(false);
@@ -39,22 +39,27 @@ export default function App() {
         <Hero onOpenResumeModal={() => setResumeModalOpen(true)} />
 
         {/* Selected Engineering Projects Gallery */}
-        <ProjectsSection />
+        <ScrollReveal viewportAmount={0.08} duration={0.7} distance={36}>
+          <ProjectsSection />
+        </ScrollReveal>
 
         {/* Technical Arsenal with Verified Skill Logos & Categorized Filters */}
-        <SkillsSection />
+        <ScrollReveal viewportAmount={0.08} duration={0.7} distance={36}>
+          <SkillsSection />
+        </ScrollReveal>
 
         {/* 3-Column Education, Work Process & Solid Crimson Quote Section */}
-        <ProcessAndEducation />
-
-        {/* Dedicated 1-Click ATS Resume Generator & Download Banner */}
-        <ResumeSection onOpenResumeModal={() => setResumeModalOpen(true)} />
+        <ScrollReveal viewportAmount={0.08} duration={0.7} distance={36}>
+          <ProcessAndEducation />
+        </ScrollReveal>
 
         {/* Let's Work Together & Fast-Loading Contact Hub */}
-        <ContactSection />
+        <ScrollReveal viewportAmount={0.08} duration={0.7} distance={36}>
+          <ContactSection />
+        </ScrollReveal>
       </main>
 
-      {/* High-Contrast Editorial Footer */}
+      {/* Simple Minimalist Footer */}
       <Footer />
 
       {/* Interactive Modals */}

@@ -34,7 +34,6 @@ export const Navbar: React.FC<NavbarProps> = ({
     { name: 'Projects', href: '#projects' },
     { name: 'Skills', href: '#skills-arsenal' },
     { name: 'Education', href: '#education-skills' },
-    { name: 'Resume', href: '#resume' },
     { name: 'Contact', href: '#contact' },
   ];
 
@@ -50,7 +49,7 @@ export const Navbar: React.FC<NavbarProps> = ({
       {/* Top Banner Ribbon */}
       <div className="bg-zinc-100 dark:bg-black/90 text-[10px] sm:text-[11px] font-semibold tracking-wider uppercase border-b border-red-200 dark:border-red-900/30 text-zinc-700 dark:text-zinc-400 py-1.5 px-4 sm:px-8 flex items-center justify-between transition-colors">
         <div className="flex items-center gap-2">
-          <span className="text-red-600 dark:text-red-500 font-bold">SOFTWARE DEVELOPMENT ENGINEER</span>
+          <span className="text-red-600 dark:text-red-500 font-bold">AI-ACCELERATED FULL-STACK DATA DEVELOPER</span>
           <span className="text-zinc-400 dark:text-zinc-600 hidden sm:inline">•</span>
           <span className="hidden sm:inline text-zinc-600 dark:text-zinc-400">CS UNDERGRAD &amp; FULL-STACK CREATOR</span>
         </div>
@@ -84,7 +83,7 @@ export const Navbar: React.FC<NavbarProps> = ({
                   {PERSONAL_INFO.name}
                 </span>
                 <span className="text-[10px] font-mono tracking-widest text-zinc-500 dark:text-zinc-400 uppercase">
-                  SDE PORTFOLIO
+                  AI-ACCELERATED FULL-STACK DATA DEVELOPER
                 </span>
               </div>
             </a>
@@ -142,7 +141,7 @@ export const Navbar: React.FC<NavbarProps> = ({
                 rel="noopener noreferrer"
                 className="p-2 text-zinc-600 dark:text-zinc-300 hover:text-amber-500 dark:hover:text-amber-400 hover:bg-zinc-100 dark:hover:bg-zinc-900 rounded-lg transition-colors flex items-center gap-1.5 text-xs font-semibold"
                 aria-label="Aditya Prakash LeetCode Profile"
-                title="View LeetCode Profile (94 Solved)"
+                title="View LeetCode Profile"
               >
                 <SkillLogo name="leetcode" className="w-4 h-4" />
                 <span className="hidden xl:inline text-[11px]">LeetCode</span>

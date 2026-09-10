@@ -138,7 +138,7 @@ export const ResumeSection: React.FC<ResumeSectionProps> = ({ onOpenResumeModal 
                   </div>
 
                   <div className="flex items-center justify-between text-xs pt-1">
-                    <span className="text-zinc-600 dark:text-zinc-400">Keyword Density (SDE)</span>
+                    <span className="text-zinc-600 dark:text-zinc-400">Keyword Density (AI &amp; Full-Stack Data)</span>
                     <span className="font-mono font-bold text-zinc-950 dark:text-white">98%</span>
                   </div>
                   <div className="w-full bg-zinc-100 dark:bg-zinc-900 h-1.5 rounded-full overflow-hidden">

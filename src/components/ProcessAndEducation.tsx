@@ -1,17 +1,10 @@
 import React from 'react';
 import { 
-  Award, 
-  BookOpen, 
-  Code2, 
-  CheckCircle2, 
-  ExternalLink, 
-  Sparkles, 
-  Layers, 
   GraduationCap,
   ShieldCheck
 } from 'lucide-react';
-import { EDUCATION_LIST, CERTIFICATIONS, SKILL_CATEGORIES, LANGUAGES_KNOWN } from '../data/portfolioData';
-import { SkillLogo } from './SkillLogo';
+import { EDUCATION_LIST, CERTIFICATIONS, LANGUAGES_KNOWN } from '../data/portfolioData';
+import { ScrollReveal } from './ScrollReveal';
 
 export const ProcessAndEducation: React.FC = () => {
   return (
@@ -24,85 +17,73 @@ export const ProcessAndEducation: React.FC = () => {
         {/* 3-Column Layout */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-6 items-stretch">
           
-          {/* COLUMN 1: EDUCATION & SKILLS (Span 5) */}
-          <div className="lg:col-span-5 bg-white dark:bg-zinc-950/80 p-6 sm:p-7 rounded-2xl border border-zinc-200 dark:border-zinc-800/80 space-y-6 text-left shadow-sm">
+          {/* COLUMN 1: EDUCATION (Span 5) */}
+          <ScrollReveal delay={0.05} distance={28} className="lg:col-span-5 h-full">
+            <div className="bg-white dark:bg-zinc-950/80 p-6 sm:p-7 rounded-2xl border border-zinc-200 dark:border-zinc-800/80 space-y-6 text-left shadow-sm flex flex-col justify-between h-full">
             
-            <h3 className="font-display text-xl sm:text-2xl uppercase tracking-wider text-zinc-900 dark:text-white font-bold pb-2 border-b border-zinc-200 dark:border-zinc-800 flex items-center justify-between">
-              <span>EDUCATION &amp; SKILLS</span>
-              <GraduationCap className="w-5 h-5 text-red-600 dark:text-red-500" />
-            </h3>
+            <div className="space-y-6">
+              <h3 className="font-display text-xl sm:text-2xl uppercase tracking-wider text-zinc-900 dark:text-white font-bold pb-2 border-b border-zinc-200 dark:border-zinc-800 flex items-center justify-between">
+                <span>EDUCATION</span>
+                <GraduationCap className="w-5 h-5 text-red-600 dark:text-red-500" />
+              </h3>
 
-            {/* Education History List */}
-            <div className="space-y-4">
-              <div className="text-xs font-bold uppercase tracking-wider text-red-600 dark:text-[#dc2626]">
-                ACADEMIC BACKGROUND
-              </div>
-
-              {EDUCATION_LIST.map((edu, idx) => (
-                <div key={idx} className="space-y-0.5 border-l-2 border-red-500/80 pl-3">
-                  <div className="flex items-baseline justify-between gap-2">
-                    <h4 className="text-xs font-bold text-zinc-900 dark:text-white">
-                      {edu.institution}
-                    </h4>
-                    <span className="text-[10px] font-mono text-red-600 dark:text-[#ef4444] font-bold shrink-0">
-                      {edu.period}
-                    </span>
-                  </div>
-                  <div className="text-[11px] text-zinc-600 dark:text-zinc-400 font-medium">
-                    {edu.degree} {edu.major ? `• ${edu.major}` : ''}
-                  </div>
-                  {edu.grade && (
-                    <div className="text-[10px] text-emerald-600 dark:text-emerald-400 font-mono font-semibold">
-                      {edu.grade}
-                    </div>
-                  )}
-                  <div className="text-[10px] text-zinc-500">
-                    {edu.location}
-                  </div>
+              {/* Education History List */}
+              <div className="space-y-5">
+                <div className="text-xs font-bold uppercase tracking-wider text-red-600 dark:text-[#dc2626]">
+                  ACADEMIC BACKGROUND
                 </div>
-              ))}
-            </div>
 
-            {/* Categorized Skills */}
-            <div className="space-y-3 pt-2">
-              <div className="text-xs font-bold uppercase tracking-wider text-red-600 dark:text-[#dc2626]">
-                TECHNICAL SKILLS &amp; STACK
-              </div>
-
-              {SKILL_CATEGORIES.map((cat, idx) => (
-                <div key={idx} className="space-y-1.5">
-                  <span className="text-[11px] font-bold text-zinc-700 dark:text-zinc-300 block">
-                    {cat.title}:
-                  </span>
-                  <div className="flex flex-wrap gap-1.5">
-                    {cat.skills.map((s) => (
-                      <span
-                        key={s.name}
-                        className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-lg bg-zinc-100 dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 text-[10px] font-bold text-zinc-800 dark:text-zinc-200 hover:border-red-600 dark:hover:border-red-500 hover:bg-white dark:hover:bg-zinc-800/80 transition-all shadow-xs group"
-                      >
-                        <SkillLogo name={s.name} className="w-3.5 h-3.5 shrink-0 transition-transform group-hover:scale-110" />
-                        <span>{s.name}</span>
+                {EDUCATION_LIST.map((edu, idx) => (
+                  <div key={idx} className="space-y-1.5 border-l-2 border-red-500/80 pl-3.5 py-1">
+                    <div className="flex items-baseline justify-between gap-2">
+                      <h4 className="text-xs sm:text-sm font-bold text-zinc-900 dark:text-white">
+                        {edu.institution}
+                      </h4>
+                      <span className="text-[10px] font-mono text-red-600 dark:text-[#ef4444] font-bold shrink-0">
+                        {edu.period}
                       </span>
-                    ))}
+                    </div>
+                    <div className="text-[11px] sm:text-xs text-zinc-600 dark:text-zinc-400 font-medium">
+                      {edu.degree} {edu.major ? `• ${edu.major}` : ''}
+                    </div>
+                    {edu.grade && (
+                      <div className="text-[10px] text-emerald-600 dark:text-emerald-400 font-mono font-semibold">
+                        {edu.grade}
+                      </div>
+                    )}
+                    {edu.highlights && edu.highlights.length > 0 && (
+                      <div className="space-y-1 pt-1">
+                        {edu.highlights.map((hl, hIdx) => (
+                          <p key={hIdx} className="text-[11px] text-zinc-600 dark:text-zinc-400 leading-relaxed">
+                            • {hl}
+                          </p>
+                        ))}
+                      </div>
+                    )}
+                    <div className="text-[10px] text-zinc-500 pt-0.5">
+                      {edu.location}
+                    </div>
                   </div>
-                </div>
-              ))}
-
-              {/* Languages Known */}
-              <div className="pt-2 border-t border-zinc-200 dark:border-zinc-800 flex items-center gap-2 text-xs">
-                <span className="font-bold text-zinc-700 dark:text-zinc-300">Languages:</span>
-                {LANGUAGES_KNOWN.map((lang) => (
-                  <span key={lang.name} className="text-zinc-600 dark:text-zinc-400 text-[11px]">
-                    {lang.name} ({lang.proficiency})
-                  </span>
                 ))}
               </div>
             </div>
 
-          </div>
+            {/* Languages Known */}
+            <div className="pt-3 border-t border-zinc-200 dark:border-zinc-800 flex items-center gap-2 text-xs">
+              <span className="font-bold text-zinc-700 dark:text-zinc-300">Languages:</span>
+              {LANGUAGES_KNOWN.map((lang) => (
+                <span key={lang.name} className="text-zinc-600 dark:text-zinc-400 text-[11px]">
+                  {lang.name} ({lang.proficiency})
+                </span>
+              ))}
+            </div>
+
+            </div>
+          </ScrollReveal>
 
           {/* COLUMN 2: VERIFIED CERTIFICATIONS (Span 4) */}
-          <div id="certifications" className="lg:col-span-4 bg-white dark:bg-zinc-950/80 p-6 sm:p-7 rounded-2xl border border-zinc-200 dark:border-zinc-800/80 space-y-6 text-left shadow-sm flex flex-col justify-between">
+          <ScrollReveal delay={0.15} distance={28} className="lg:col-span-4 h-full">
+            <div id="certifications" className="bg-white dark:bg-zinc-950/80 p-6 sm:p-7 rounded-2xl border border-zinc-200 dark:border-zinc-800/80 space-y-6 text-left shadow-sm flex flex-col justify-between h-full">
             
             <div>
               <div className="flex items-center justify-between pb-2 border-b border-zinc-200 dark:border-zinc-800">
@@ -168,39 +149,42 @@ export const ProcessAndEducation: React.FC = () => {
               </p>
             </div>
 
-          </div>
+            </div>
+          </ScrollReveal>
 
           {/* COLUMN 3: SOLID CRIMSON RED EDITORIAL QUOTE BLOCK (Span 3) */}
-          <div className="lg:col-span-3 bg-[#8b1523] dark:bg-[#7a0c16] text-white p-7 sm:p-8 rounded-2xl flex flex-col justify-between relative shadow-xl dark:shadow-2xl overflow-hidden text-left border border-red-800 dark:border-red-900/60">
-            
-            {/* Top Quote Icon */}
-            <div className="space-y-4">
-              <div className="text-4xl text-rose-200 font-serif leading-none">
-                “
-              </div>
-
-              <blockquote className="text-sm sm:text-base font-medium leading-relaxed text-white">
-                Data is the fuel, algorithms are the engine, and clean code is the steering wheel for modern AI solutions.
-              </blockquote>
-            </div>
-
-            {/* Signature & Callout at bottom */}
-            <div className="space-y-6 pt-8">
-              <div className="font-script text-4xl sm:text-5xl text-rose-100 select-none">
-                Aditya
-              </div>
-
-              <div className="space-y-1 pt-4 border-t border-rose-800/60 dark:border-rose-900/50">
-                <div className="text-xs font-black uppercase tracking-wider text-white">
-                  LET'S CREATE IMPACT TOGETHER.
+          <ScrollReveal delay={0.25} distance={28} className="lg:col-span-3 h-full">
+            <div className="bg-[#8b1523] dark:bg-[#7a0c16] text-white p-7 sm:p-8 rounded-2xl flex flex-col justify-between relative shadow-xl dark:shadow-2xl overflow-hidden text-left border border-red-800 dark:border-red-900/60 h-full">
+              
+              {/* Top Quote Icon */}
+              <div className="space-y-4">
+                <div className="text-4xl text-rose-200 font-serif leading-none">
+                  “
                 </div>
-                <div className="text-[11px] text-rose-100 font-medium">
-                  ✦ Open for SDE &amp; AI / Data Roles
+
+                <blockquote className="text-sm sm:text-base font-medium leading-relaxed text-white">
+                  Data is the fuel, algorithms are the engine, and clean code is the steering wheel for modern AI solutions.
+                </blockquote>
+              </div>
+
+              {/* Signature & Callout at bottom */}
+              <div className="space-y-6 pt-8">
+                <div className="font-script text-4xl sm:text-5xl text-rose-100 select-none">
+                  Aditya
+                </div>
+
+                <div className="space-y-1 pt-4 border-t border-rose-800/60 dark:border-rose-900/50">
+                  <div className="text-xs font-black uppercase tracking-wider text-white">
+                    LET'S CREATE IMPACT TOGETHER.
+                  </div>
+                  <div className="text-[11px] text-rose-100 font-medium">
+                    ✦ Open for AI-Accelerated Full-Stack Data Developer Roles
+                  </div>
                 </div>
               </div>
-            </div>
 
-          </div>
+            </div>
+          </ScrollReveal>
 
         </div>
 

@@ -13,10 +13,15 @@ import {
 import { SKILL_CATEGORIES } from '../data/portfolioData';
 import { SkillCategory } from '../types';
 import { SkillLogo } from './SkillLogo';
+import { HoloCard } from './HoloCard';
+import { ScrollReveal } from './ScrollReveal';
+import { TechSphere3D } from './TechSphere3D';
+import { LayoutGrid, Orbit } from 'lucide-react';
 
 export const SkillsSection: React.FC = () => {
   const [selectedCategory, setSelectedCategory] = useState<string>('All');
   const [searchQuery, setSearchQuery] = useState<string>('');
+  const [viewMode, setViewMode] = useState<'3d-sphere' | 'grid'>('3d-sphere');
 
   const categoryIcons: Record<string, React.ReactNode> = {
     'Languages': <Code className="w-5 h-5 text-red-600 dark:text-red-500" />,
@@ -74,145 +79,202 @@ export const SkillsSection: React.FC = () => {
             </p>
           </div>
 
-          {/* Quick Search Bar */}
-          <div className="relative w-full md:w-72">
-            <Search className="w-4 h-4 absolute left-3.5 top-1/2 -translate-y-1/2 text-zinc-400" />
-            <input
-              id="skill-search-input"
-              type="text"
-              value={searchQuery}
-              onChange={(e) => setSearchQuery(e.target.value)}
-              placeholder="Search skills (e.g. Python, SQL, Power BI)..."
-              className="w-full pl-10 pr-12 py-2.5 rounded-xl text-xs bg-zinc-50 dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 text-zinc-900 dark:text-white placeholder-zinc-400 focus:outline-none focus:ring-2 focus:ring-red-500 focus:border-transparent transition-all shadow-xs"
-            />
-            {searchQuery && (
-              <button
-                onClick={() => setSearchQuery('')}
-                className="absolute right-3 top-1/2 -translate-y-1/2 text-xs font-semibold text-zinc-400 hover:text-zinc-700 dark:hover:text-zinc-200"
-              >
-                Clear
-              </button>
-            )}
-          </div>
+          {/* Quick Search Bar (shown only in grid mode) */}
+          {viewMode === 'grid' && (
+            <div className="relative w-full md:w-72">
+              <Search className="w-4 h-4 absolute left-3.5 top-1/2 -translate-y-1/2 text-zinc-400" />
+              <input
+                id="skill-search-input"
+                type="text"
+                value={searchQuery}
+                onChange={(e) => setSearchQuery(e.target.value)}
+                placeholder="Search skills (e.g. Python, SQL, Power BI)..."
+                className="w-full pl-10 pr-12 py-2.5 rounded-xl text-xs bg-zinc-50 dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 text-zinc-900 dark:text-white placeholder-zinc-400 focus:outline-none focus:ring-2 focus:ring-red-500 focus:border-transparent transition-all shadow-xs"
+              />
+              {searchQuery && (
+                <button
+                  onClick={() => setSearchQuery('')}
+                  className="absolute right-3 top-1/2 -translate-y-1/2 text-xs font-semibold text-zinc-400 hover:text-zinc-700 dark:hover:text-zinc-200"
+                >
+                  Clear
+                </button>
+              )}
+            </div>
+          )}
         </div>
 
-        {/* Category Pill Filters */}
-        <div className="flex items-center gap-2 overflow-x-auto pb-4 mb-8 scrollbar-none">
-          {allCategories.map((cat) => {
-            const isActive = selectedCategory === cat;
-            return (
-              <button
-                key={cat}
-                id={`skill-filter-${cat.toLowerCase().replace(/[^a-z0-9]/g, '-')}`}
-                onClick={() => setSelectedCategory(cat)}
-                className={`px-4 py-2 rounded-xl text-xs font-bold whitespace-nowrap transition-all cursor-pointer ${
-                  isActive
-                    ? 'bg-red-600 text-white shadow-md shadow-red-600/20'
-                    : 'bg-zinc-100 dark:bg-zinc-900 text-zinc-600 dark:text-zinc-400 hover:bg-zinc-200 dark:hover:bg-zinc-800 hover:text-zinc-900 dark:hover:text-zinc-200'
-                }`}
-              >
-                {cat}
-              </button>
-            );
-          })}
-        </div>
+        {/* View Mode Toggle & Category Pill Filters */}
+        <div className="flex flex-wrap items-center justify-between gap-4 mb-8">
+          {/* Category Pill Filters (only in grid mode) */}
+          {viewMode === 'grid' ? (
+            <div className="flex items-center gap-2 overflow-x-auto pb-1 scrollbar-none">
+              {allCategories.map((cat) => {
+                const isActive = selectedCategory === cat;
+                return (
+                  <button
+                    key={cat}
+                    id={`skill-filter-${cat.toLowerCase().replace(/[^a-z0-9]/g, '-')}`}
+                    onClick={() => setSelectedCategory(cat)}
+                    className={`px-4 py-2 rounded-xl text-xs font-bold whitespace-nowrap transition-all cursor-pointer ${
+                      isActive
+                        ? 'bg-red-600 text-white shadow-md shadow-red-600/20'
+                        : 'bg-zinc-100 dark:bg-zinc-900 text-zinc-600 dark:text-zinc-400 hover:bg-zinc-200 dark:hover:bg-zinc-800 hover:text-zinc-900 dark:hover:text-zinc-200'
+                    }`}
+                  >
+                    {cat}
+                  </button>
+                );
+              })}
+            </div>
+          ) : (
+            <div className="text-xs font-mono text-zinc-400 flex items-center gap-2">
+              <span className="w-2 h-2 rounded-full bg-red-500 animate-pulse" />
+              <span>Interactive 3D Perspective Mode</span>
+            </div>
+          )}
 
-        {/* Skill Category Cards Grid */}
-        {filteredCategories.length === 0 ? (
-          <div className="text-center py-16 bg-zinc-50 dark:bg-zinc-900/30 rounded-2xl border border-dashed border-zinc-300 dark:border-zinc-800">
-            <p className="text-sm font-medium text-zinc-500 dark:text-zinc-400">
-              No skills found matching "{searchQuery}".
-            </p>
+          {/* 3D Sphere vs Grid Toggle */}
+          <div className="inline-flex items-center p-1 rounded-xl bg-zinc-100 dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 text-xs shrink-0">
             <button
-              onClick={() => { setSearchQuery(''); setSelectedCategory('All'); }}
-              className="mt-3 text-xs font-bold text-red-600 dark:text-red-400 underline"
+              onClick={() => setViewMode('3d-sphere')}
+              className={`inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg font-bold transition-all cursor-pointer ${
+                viewMode === '3d-sphere'
+                  ? 'bg-red-600 text-white shadow-xs'
+                  : 'text-zinc-600 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-white'
+              }`}
             >
-              Reset Filters
+              <Orbit className="w-3.5 h-3.5" />
+              <span>3D Data Sphere</span>
+            </button>
+            <button
+              onClick={() => setViewMode('grid')}
+              className={`inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg font-bold transition-all cursor-pointer ${
+                viewMode === 'grid'
+                  ? 'bg-red-600 text-white shadow-xs'
+                  : 'text-zinc-600 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-white'
+              }`}
+            >
+              <LayoutGrid className="w-3.5 h-3.5" />
+              <span>Categorized Grid</span>
             </button>
           </div>
+        </div>
+
+        {/* 3D Orbiting Sphere Display */}
+        {viewMode === '3d-sphere' ? (
+          <div className="animate-in fade-in zoom-in-95 duration-300">
+            <TechSphere3D />
+          </div>
         ) : (
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-            {filteredCategories.map((category) => (
-              <div
-                key={category.title}
-                id={`skill-card-${category.title.toLowerCase().replace(/[^a-z0-9]/g, '-')}`}
-                className="bg-zinc-50 dark:bg-zinc-950/70 rounded-2xl p-6 border border-zinc-200 dark:border-zinc-800/80 flex flex-col justify-between hover:border-red-300 dark:hover:border-red-900/60 transition-all shadow-sm group/card"
+          /* Skill Category Cards Grid - only shown in Categorized Grid mode */
+          filteredCategories.length === 0 ? (
+            <div className="text-center py-16 bg-zinc-50 dark:bg-zinc-900/30 rounded-2xl border border-dashed border-zinc-300 dark:border-zinc-800">
+              <p className="text-sm font-medium text-zinc-500 dark:text-zinc-400">
+                No skills found matching "{searchQuery}".
+              </p>
+              <button
+                onClick={() => { setSearchQuery(''); setSelectedCategory('All'); }}
+                className="mt-3 text-xs font-bold text-red-600 dark:text-red-400 underline cursor-pointer"
               >
-                <div>
-                  {/* Category Header */}
-                  <div className="flex items-center gap-3 mb-4">
-                    <div className="p-2.5 rounded-xl bg-white dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 shadow-xs">
-                      {categoryIcons[category.title] || <Code className="w-5 h-5 text-red-600 dark:text-red-500" />}
-                    </div>
-                    <div className="text-left">
-                      <h3 className="text-sm font-bold uppercase tracking-wider text-zinc-900 dark:text-white">
-                        {category.title}
-                      </h3>
-                      <p className="text-[11px] text-zinc-500 dark:text-zinc-400 line-clamp-1">
-                        {category.description}
-                      </p>
-                    </div>
-                  </div>
-
-                  {/* Skills List with Logos */}
-                  <div className="space-y-2.5 mt-3">
-                    {category.skills.map((skill) => (
-                      <div
-                        key={skill.name}
-                        className="bg-white dark:bg-zinc-900/90 rounded-xl p-2.5 border border-zinc-200/80 dark:border-zinc-800/80 hover:border-red-500 dark:hover:border-red-600/70 transition-all group/item shadow-2xs"
-                      >
-                        <div className="flex items-center justify-between gap-2">
-                          <div className="flex items-center gap-2 text-left">
-                            <div className="w-6 h-6 rounded-lg bg-zinc-50 dark:bg-zinc-800 flex items-center justify-center p-1 border border-zinc-100 dark:border-zinc-700/60 shrink-0 group-hover/item:scale-110 transition-transform">
-                              <SkillLogo name={skill.name} className="w-4 h-4" />
-                            </div>
-                            <span className="font-bold text-xs text-zinc-900 dark:text-zinc-100 group-hover/item:text-red-600 dark:group-hover/item:text-red-400 transition-colors">
-                              {skill.name}
-                            </span>
+                Reset Filters
+              </button>
+            </div>
+          ) : (
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+              {filteredCategories.map((category, idx) => (
+                <ScrollReveal
+                  key={category.title}
+                  delay={idx * 0.08}
+                  distance={24}
+                  className="h-full"
+                >
+                  <HoloCard
+                    maxTilt={7}
+                    depthPop={true}
+                    className="h-full"
+                    id={`skill-card-${category.title.toLowerCase().replace(/[^a-z0-9]/g, '-')}`}
+                  >
+                    <div
+                      className="bg-zinc-50 dark:bg-zinc-950/70 rounded-2xl p-6 border border-zinc-200 dark:border-zinc-800/80 flex flex-col justify-between hover:border-red-300 dark:hover:border-red-900/60 transition-all shadow-sm group/card h-full"
+                    >
+                      <div>
+                        {/* Category Header */}
+                        <div className="flex items-center gap-3 mb-4">
+                          <div className="p-2.5 rounded-xl bg-white dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 shadow-xs">
+                            {categoryIcons[category.title] || <Code className="w-5 h-5 text-red-600 dark:text-red-500" />}
                           </div>
-
-                          <span
-                            className={`text-[9px] font-bold px-2 py-0.5 rounded-md ${
-                              skill.level === 'Advanced'
-                                ? 'bg-red-50 dark:bg-red-950/60 text-red-700 dark:text-red-300 border border-red-200 dark:border-red-900'
-                                : skill.level === 'Proficient'
-                                ? 'bg-zinc-100 dark:bg-zinc-800 text-zinc-700 dark:text-zinc-300 border border-zinc-200 dark:border-zinc-700'
-                                : 'bg-zinc-100 dark:bg-zinc-800 text-zinc-600 dark:text-zinc-400'
-                            }`}
-                          >
-                            {skill.level}
-                          </span>
+                          <div className="text-left">
+                            <h3 className="text-sm font-bold uppercase tracking-wider text-zinc-900 dark:text-white">
+                              {category.title}
+                            </h3>
+                            <p className="text-[11px] text-zinc-500 dark:text-zinc-400 line-clamp-1">
+                              {category.description}
+                            </p>
+                          </div>
                         </div>
 
-                        {/* Skill Tags */}
-                        {skill.tags && skill.tags.length > 0 && (
-                          <div className="flex flex-wrap gap-1 mt-2 pl-8">
-                            {skill.tags.map((tag) => (
-                              <span
-                                key={tag}
-                                className="text-[9px] font-medium px-1.5 py-0.5 rounded bg-zinc-100 dark:bg-zinc-800/80 text-zinc-600 dark:text-zinc-400"
-                              >
-                                #{tag}
-                              </span>
-                            ))}
-                          </div>
-                        )}
-                      </div>
-                    ))}
-                  </div>
-                </div>
+                        {/* Skills List with Logos */}
+                        <div className="space-y-2.5 mt-3">
+                          {category.skills.map((skill) => (
+                            <div
+                              key={skill.name}
+                              className="bg-white dark:bg-zinc-900/90 rounded-xl p-2.5 border border-zinc-200/80 dark:border-zinc-800/80 hover:border-red-500 dark:hover:border-red-600/70 transition-all group/item shadow-2xs"
+                            >
+                              <div className="flex items-center justify-between gap-2">
+                                <div className="flex items-center gap-2 text-left">
+                                  <div className="w-6 h-6 rounded-lg bg-zinc-50 dark:bg-zinc-800 flex items-center justify-center p-1 border border-zinc-100 dark:border-zinc-700/60 shrink-0 group-hover/item:scale-110 transition-transform">
+                                    <SkillLogo name={skill.name} className="w-4 h-4" />
+                                  </div>
+                                  <span className="font-bold text-xs text-zinc-900 dark:text-zinc-100 group-hover/item:text-red-600 dark:group-hover/item:text-red-400 transition-colors">
+                                    {skill.name}
+                                  </span>
+                                </div>
 
-                {/* Card Footer */}
-                <div className="mt-4 pt-3 border-t border-zinc-200/80 dark:border-zinc-800/80 flex items-center justify-between text-[10px] text-zinc-400 dark:text-zinc-500">
-                  <span>{category.skills.length} skills</span>
-                  <span className="font-semibold text-red-600 dark:text-red-400 flex items-center gap-1">
-                    <CheckCircle2 className="w-3 h-3" />
-                    Recruiter Ready
-                  </span>
-                </div>
-              </div>
-            ))}
-          </div>
+                                <span
+                                  className={`text-[9px] font-bold px-2 py-0.5 rounded-md ${
+                                    skill.level === 'Advanced'
+                                      ? 'bg-red-50 dark:bg-red-950/60 text-red-700 dark:text-red-300 border border-red-200 dark:border-red-900'
+                                      : skill.level === 'Proficient'
+                                      ? 'bg-zinc-100 dark:bg-zinc-800 text-zinc-700 dark:text-zinc-300 border border-zinc-200 dark:border-zinc-700'
+                                      : 'bg-zinc-100 dark:bg-zinc-800 text-zinc-600 dark:text-zinc-400'
+                                  }`}
+                                >
+                                  {skill.level}
+                                </span>
+                              </div>
+
+                              {/* Skill Tags */}
+                              {skill.tags && skill.tags.length > 0 && (
+                                <div className="flex flex-wrap gap-1 mt-2 pl-8">
+                                  {skill.tags.map((tag) => (
+                                    <span
+                                      key={tag}
+                                      className="text-[9px] font-medium px-1.5 py-0.5 rounded bg-zinc-100 dark:bg-zinc-800/80 text-zinc-600 dark:text-zinc-400"
+                                    >
+                                      #{tag}
+                                    </span>
+                                  ))}
+                                </div>
+                              )}
+                            </div>
+                          ))}
+                        </div>
+                      </div>
+
+                      {/* Card Footer */}
+                      <div className="mt-4 pt-3 border-t border-zinc-200/80 dark:border-zinc-800/80 flex items-center justify-between text-[10px] text-zinc-400 dark:text-zinc-500">
+                        <span>{category.skills.length} skills</span>
+                        <span className="font-semibold text-red-600 dark:text-red-400 flex items-center gap-1">
+                          <CheckCircle2 className="w-3 h-3" />
+                          Recruiter Ready
+                        </span>
+                      </div>
+                    </div>
+                  </HoloCard>
+                </ScrollReveal>
+              ))}
+            </div>
+          )
         )}
 
       </div>

@@ -11,6 +11,8 @@ import {
 import { PROJECTS, PERSONAL_INFO } from '../data/portfolioData';
 import { Project } from '../types';
 import { ProjectModal } from './ProjectModal';
+import { HoloCard } from './HoloCard';
+import { ScrollReveal } from './ScrollReveal';
 
 export const ProjectsSection: React.FC = () => {
   const [activeModalProject, setActiveModalProject] = useState<Project | null>(null);
@@ -56,88 +58,103 @@ export const ProjectsSection: React.FC = () => {
           {PROJECTS.map((project, idx) => {
             const num = `0${idx + 1}`;
             return (
-              <div 
+              <ScrollReveal
                 key={project.id}
-                className="group flex flex-col space-y-4 text-left cursor-pointer"
-                onClick={() => setActiveModalProject(project)}
+                delay={idx * 0.12}
+                distance={28}
+                className="h-full"
               >
-                {/* Mockup Card Header Box with Tech Badges */}
-                <div className="relative aspect-video w-full rounded-xl overflow-hidden bg-zinc-900 dark:bg-zinc-950 border border-zinc-200 dark:border-zinc-800 group-hover:border-red-400 dark:group-hover:border-red-800/80 transition-all shadow-md dark:shadow-lg p-5 flex flex-col justify-between">
-                  
-                  {/* Top Bar inside Card */}
-                  <div className="flex items-center justify-between z-10">
-                    <div className="p-2 rounded-lg bg-black/60 border border-zinc-800">
-                      {projectIcons[idx] || <BarChart3 className="w-5 h-5 text-red-500" />}
+                <HoloCard 
+                  maxTilt={10}
+                  depthPop={true}
+                  className="w-full h-full cursor-pointer"
+                  onClick={() => setActiveModalProject(project)}
+                >
+                  <div 
+                    className="group flex flex-col space-y-4 text-left h-full"
+                  >
+                    {/* Mockup Card Header Box with Tech Badges */}
+                    <div 
+                      className="relative aspect-video w-full rounded-xl overflow-hidden bg-zinc-900 dark:bg-zinc-950 border border-zinc-200 dark:border-zinc-800 group-hover:border-red-400 dark:group-hover:border-red-800/80 transition-all shadow-md dark:shadow-lg p-5 flex flex-col justify-between"
+                      style={{ transformStyle: 'preserve-3d' }}
+                    >
+                      
+                      {/* Top Bar inside Card with 3D Depth */}
+                      <div className="flex items-center justify-between z-10 transition-transform duration-300" style={{ transform: 'translateZ(18px)' }}>
+                        <div className="p-2 rounded-lg bg-black/60 border border-zinc-800 shadow-md">
+                          {projectIcons[idx] || <BarChart3 className="w-5 h-5 text-red-500" />}
+                        </div>
+                        <span className="text-[10px] font-mono font-bold uppercase tracking-widest text-zinc-400 bg-black/60 px-2 py-1 rounded border border-zinc-800">
+                          {project.category.toUpperCase()}
+                        </span>
+                      </div>
+
+                      {/* Center Key Feature Summary with 3D Depth */}
+                      <div className="z-10 space-y-1 transition-transform duration-300" style={{ transform: 'translateZ(26px)' }}>
+                        <span className="font-display text-xl sm:text-2xl text-white font-bold leading-tight line-clamp-1">
+                          {project.title}
+                        </span>
+                        <p className="text-[11px] text-zinc-400 line-clamp-2 leading-snug">
+                          {project.description}
+                        </p>
+                      </div>
+
+                      {/* Bottom Tech Pills inside card with 3D Depth */}
+                      <div className="z-10 flex flex-wrap gap-1.5 pt-1 transition-transform duration-300" style={{ transform: 'translateZ(20px)' }}>
+                        {project.technologies.slice(0, 3).map((tech) => (
+                          <span
+                            key={tech}
+                            className="px-2 py-0.5 rounded text-[9px] font-bold uppercase tracking-wider bg-red-950/80 border border-red-800/60 text-red-300 shadow-sm"
+                          >
+                            {tech}
+                          </span>
+                        ))}
+                        {project.technologies.length > 3 && (
+                          <span className="px-1.5 py-0.5 rounded text-[9px] font-mono text-zinc-400 bg-black/60">
+                            +{project.technologies.length - 3}
+                          </span>
+                        )}
+                      </div>
+
+                      {/* Gradient Background & Glow */}
+                      <div className="absolute inset-0 bg-gradient-to-tr from-black via-zinc-950/90 to-red-950/30 group-hover:to-red-900/40 transition-colors pointer-events-none"></div>
+
+                      {/* Expand inspect icon */}
+                      <div className="absolute top-2.5 right-2.5 p-1.5 rounded-md bg-white/90 dark:bg-black/80 text-zinc-800 dark:text-zinc-300 opacity-0 group-hover:opacity-100 transition-opacity shadow-sm z-20">
+                        <Maximize2 className="w-3.5 h-3.5" />
+                      </div>
                     </div>
-                    <span className="text-[10px] font-mono font-bold uppercase tracking-widest text-zinc-400 bg-black/60 px-2 py-1 rounded border border-zinc-800">
-                      {project.category.toUpperCase()}
-                    </span>
-                  </div>
 
-                  {/* Center Key Feature Summary */}
-                  <div className="z-10 space-y-1">
-                    <span className="font-display text-xl sm:text-2xl text-white font-bold leading-tight line-clamp-1">
-                      {project.title}
-                    </span>
-                    <p className="text-[11px] text-zinc-400 line-clamp-2 leading-snug">
-                      {project.description}
-                    </p>
-                  </div>
+                    {/* Project Info Row */}
+                    <div className="flex items-start justify-between gap-3 pt-1">
+                      
+                      <div className="flex items-start gap-3">
+                        {/* Big Bold Crimson Red Number */}
+                        <span className="font-display text-3xl sm:text-4xl text-red-600 dark:text-[#dc2626] font-bold leading-none shrink-0">
+                          {num}
+                        </span>
 
-                  {/* Bottom Tech Pills inside card */}
-                  <div className="z-10 flex flex-wrap gap-1.5 pt-1">
-                    {project.technologies.slice(0, 3).map((tech) => (
-                      <span
-                        key={tech}
-                        className="px-2 py-0.5 rounded text-[9px] font-bold uppercase tracking-wider bg-red-950/80 border border-red-800/60 text-red-300"
-                      >
-                        {tech}
-                      </span>
-                    ))}
-                    {project.technologies.length > 3 && (
-                      <span className="px-1.5 py-0.5 rounded text-[9px] font-mono text-zinc-400 bg-black/60">
-                        +{project.technologies.length - 3}
-                      </span>
-                    )}
-                  </div>
+                        {/* Project Title & Category */}
+                        <div className="space-y-0.5">
+                          <h3 className="text-xs sm:text-sm font-bold text-zinc-900 dark:text-white uppercase tracking-wider group-hover:text-red-600 dark:group-hover:text-[#ef4444] transition-colors">
+                            {project.title}
+                          </h3>
+                          <p className="text-[10px] text-zinc-500 dark:text-zinc-400 font-bold uppercase tracking-widest">
+                            {project.technologies.slice(0, 3).join(' • ')}
+                          </p>
+                        </div>
+                      </div>
 
-                  {/* Gradient Background & Glow */}
-                  <div className="absolute inset-0 bg-gradient-to-tr from-black via-zinc-950/90 to-red-950/30 group-hover:to-red-900/40 transition-colors pointer-events-none"></div>
+                      {/* Right Arrow */}
+                      <div className="text-zinc-400 dark:text-zinc-600 group-hover:text-red-600 dark:group-hover:text-[#dc2626] transition-colors pt-1">
+                        <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                      </div>
 
-                  {/* Expand inspect icon */}
-                  <div className="absolute top-2.5 right-2.5 p-1.5 rounded-md bg-white/90 dark:bg-black/80 text-zinc-800 dark:text-zinc-300 opacity-0 group-hover:opacity-100 transition-opacity shadow-sm z-20">
-                    <Maximize2 className="w-3.5 h-3.5" />
-                  </div>
-                </div>
-
-                {/* Project Info Row */}
-                <div className="flex items-start justify-between gap-3 pt-1">
-                  
-                  <div className="flex items-start gap-3">
-                    {/* Big Bold Crimson Red Number */}
-                    <span className="font-display text-3xl sm:text-4xl text-red-600 dark:text-[#dc2626] font-bold leading-none shrink-0">
-                      {num}
-                    </span>
-
-                    {/* Project Title & Category */}
-                    <div className="space-y-0.5">
-                      <h3 className="text-xs sm:text-sm font-bold text-zinc-900 dark:text-white uppercase tracking-wider group-hover:text-red-600 dark:group-hover:text-[#ef4444] transition-colors">
-                        {project.title}
-                      </h3>
-                      <p className="text-[10px] text-zinc-500 dark:text-zinc-400 font-bold uppercase tracking-widest">
-                        {project.technologies.slice(0, 3).join(' • ')}
-                      </p>
                     </div>
+
                   </div>
-
-                  {/* Right Arrow */}
-                  <div className="text-zinc-400 dark:text-zinc-600 group-hover:text-red-600 dark:group-hover:text-[#dc2626] transition-colors pt-1">
-                    <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-                  </div>
-
-                </div>
-
-              </div>
+                </HoloCard>
+              </ScrollReveal>
             );
           })}
         </div>

@@ -2,8 +2,8 @@ import { Project, SkillCategory, Experience, EducationEntry, CodingProfile, Cert
 
 export const PERSONAL_INFO = {
   name: 'Aditya Prakash',
-  title: 'Software Development Engineer & Data Analytics / AI Creator',
-  targetRole: 'SDE-1 & Data/AI Engineer',
+  title: 'AI-Accelerated Full-Stack Data Developer',
+  targetRole: 'AI-Accelerated Full-Stack Data Developer',
   tagline: 'Crafting intelligent data pipelines, predictive models, and modern web applications with algorithmic rigor.',
   bio: 'Computer Science & Engineering undergraduate at Lovely Professional University specializing in Python, SQL, C/C++, Java, Machine Learning, Power BI analytics, and full-stack AI development. Passionate about solving complex problems and turning raw data into high-impact digital experiences.',
   email: 'aditya04112006@gmail.com',
@@ -69,8 +69,8 @@ export const SKILL_CATEGORIES: SkillCategory[] = [
     description: 'Professional engineering execution and repository collaboration',
     iconName: 'GitBranch',
     skills: [
-      { name: 'Adaptability', level: 'Advanced', tags: ['Rapid Learning', 'Agile'] },
-      { name: 'Time Management', level: 'Advanced', tags: ['Sprint Planning', 'Delivery'] },
+      { name: 'Adaptability', level: 'Proficient', tags: ['Rapid Learning', 'Agile'] },
+      { name: 'Time Management', level: 'Proficient', tags: ['Sprint Planning', 'Delivery'] },
       { name: 'Git & GitHub', level: 'Proficient', tags: ['Branching', 'Open Source', 'CI/CD'] },
     ],
   },
@@ -331,7 +331,7 @@ export const CODING_PROFILES: CodingProfile[] = [
     platform: 'LeetCode',
     username: 'x2gyI6JfIR',
     url: 'https://leetcode.com/u/x2gyI6JfIR/',
-    stats: '94 Solved • 24-Day Streak',
+    stats: 'Daily Problem Solving & Algorithms',
     badge: 'Algorithms & Problem Solving',
     color: 'from-amber-600 to-orange-700',
   },
@@ -356,7 +356,7 @@ export const CODING_PROFILES: CodingProfile[] = [
     username: 'aditya-prakash0',
     url: 'https://www.linkedin.com/in/aditya-prakash0/',
     stats: 'Verified Developer Profile',
-    badge: 'Open to SDE & Data Roles',
+    badge: 'Open to AI & Full-Stack Data Roles',
     color: 'from-blue-600 to-sky-700',
   },
 ];
