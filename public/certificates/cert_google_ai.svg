@@ -1,0 +1,134 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 700" width="1000" height="700">
+  <defs>
+    <linearGradient id="bgGrad" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#FCFAF5" />
+      <stop offset="50%" stop-color="#FFFFFF" />
+      <stop offset="100%" stop-color="#F7F2E7" />
+    </linearGradient>
+    <linearGradient id="goldBorder" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#C59B27" />
+      <stop offset="50%" stop-color="#E5C158" />
+      <stop offset="100%" stop-color="#9E7512" />
+    </linearGradient>
+    <linearGradient id="blueAccent" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#1A73E8" />
+      <stop offset="100%" stop-color="#4285F4" />
+    </linearGradient>
+    <filter id="shadow" x="-5%" y="-5%" width="110%" height="110%">
+      <feDropShadow dx="0" dy="4" stdDeviation="6" flood-color="#000000" flood-opacity="0.15" />
+    </filter>
+  </defs>
+
+  <!-- Background -->
+  <rect width="1000" height="700" fill="url(#bgGrad)" />
+
+  <!-- Outer Ornate Frame -->
+  <rect x="25" y="25" width="950" height="650" rx="8" fill="none" stroke="url(#goldBorder)" stroke-width="4" />
+  <rect x="35" y="35" width="930" height="630" rx="6" fill="none" stroke="#2B211B" stroke-opacity="0.15" stroke-width="1" />
+  <rect x="42" y="42" width="916" height="616" rx="4" fill="none" stroke="url(#goldBorder)" stroke-dasharray="6,4" stroke-width="1.5" />
+
+  <!-- Corner Corner Ornaments -->
+  <g fill="none" stroke="url(#goldBorder)" stroke-width="2">
+    <path d="M 25 65 A 40 40 0 0 0 65 25" />
+    <path d="M 975 65 A 40 40 0 0 1 935 25" />
+    <path d="M 25 635 A 40 40 0 0 1 65 675" />
+    <path d="M 975 635 A 40 40 0 0 0 935 675" />
+  </g>
+
+  <!-- Top Logo Section -->
+  <g transform="translate(100, 75)">
+    <!-- Google Coursera Emblem -->
+    <rect x="0" y="0" width="160" height="42" rx="6" fill="#F1F5F9" stroke="#E2E8F0" />
+    <text x="80" y="26" font-family="sans-serif" font-size="16" font-weight="bold" fill="#4285F4" text-anchor="middle">Google</text>
+    <text x="180" y="27" font-family="sans-serif" font-size="14" font-weight="500" fill="#64748B">×</text>
+    <rect x="200" y="0" width="160" height="42" rx="6" fill="#F1F5F9" stroke="#E2E8F0" />
+    <text x="280" y="26" font-family="sans-serif" font-size="15" font-weight="bold" fill="#0056D2" text-anchor="middle">coursera</text>
+  </g>
+
+  <!-- Badge / Ribbon Right -->
+  <g transform="translate(760, 65)">
+    <circle cx="65" cy="40" r="32" fill="url(#goldBorder)" filter="url(#shadow)" />
+    <circle cx="65" cy="40" r="26" fill="#1A73E8" />
+    <path d="M 65 24 L 70 34 L 81 35 L 73 43 L 75 54 L 65 48 L 55 54 L 57 43 L 49 35 L 60 34 Z" fill="#FFD700" />
+    <path d="M 50 66 L 40 100 L 65 88 L 90 100 L 80 66 Z" fill="url(#goldBorder)" />
+  </g>
+
+  <!-- Certificate Subtitle -->
+  <text x="500" y="180" font-family="sans-serif" font-size="14" font-weight="700" letter-spacing="4" fill="#6B3F25" text-anchor="middle">
+    PROFESSIONAL SPECIALIZATION CERTIFICATE
+  </text>
+  <line x1="380" y1="195" x2="620" y2="195" stroke="url(#goldBorder)" stroke-width="2" />
+
+  <!-- Presentation line -->
+  <text x="500" y="235" font-family="serif" font-size="16" font-style="italic" fill="#746A61" text-anchor="middle">
+    This is to certify that
+  </text>
+
+  <!-- Recipient Name -->
+  <text x="500" y="295" font-family="serif" font-size="44" font-weight="bold" fill="#1E293B" text-anchor="middle" letter-spacing="1">
+    Aditya Prakash
+  </text>
+  <line x1="280" y1="315" x2="720" y2="315" stroke="#CBD5E1" stroke-width="1" />
+
+  <!-- Achievement Description -->
+  <text x="500" y="350" font-family="sans-serif" font-size="15" fill="#475569" text-anchor="middle">
+    has successfully completed the online authorized curriculum for
+  </text>
+
+  <!-- Certificate Course Name -->
+  <text x="500" y="405" font-family="sans-serif" font-size="30" font-weight="800" fill="#0F172A" text-anchor="middle">
+    Google AI Professional Certificate
+  </text>
+  <text x="500" y="435" font-family="sans-serif" font-size="14" fill="#64748B" text-anchor="middle">
+    Offered through Coursera and verified by Google Training and Education
+  </text>
+
+  <!-- Competencies Badges -->
+  <g transform="translate(180, 465)">
+    <rect x="0" y="0" width="140" height="26" rx="13" fill="#EEF2FF" stroke="#C7D2FE" />
+    <text x="70" y="17" font-family="sans-serif" font-size="11" font-weight="600" fill="#3730A3" text-anchor="middle">Artificial Intelligence</text>
+    
+    <rect x="150" y="0" width="130" height="26" rx="13" fill="#EFF6FF" stroke="#BFDBFE" />
+    <text x="215" y="17" font-family="sans-serif" font-size="11" font-weight="600" fill="#1D4ED8" text-anchor="middle">Generative AI</text>
+
+    <rect x="290" y="0" width="160" height="26" rx="13" fill="#ECFDF5" stroke="#A7F3D0" />
+    <text x="370" y="17" font-family="sans-serif" font-size="11" font-weight="600" fill="#065F46" text-anchor="middle">Prompt Engineering</text>
+
+    <rect x="460" y="0" width="180" height="26" rx="13" fill="#FFFBEB" stroke="#FDE68A" />
+    <text x="550" y="17" font-family="sans-serif" font-size="11" font-weight="600" fill="#92400E" text-anchor="middle">AI Application Building</text>
+  </g>
+
+  <!-- Signatures and Footer -->
+  <g transform="translate(140, 540)">
+    <!-- Signature 1 -->
+    <path d="M 10 35 Q 40 10, 80 30 T 150 25" fill="none" stroke="#1E293B" stroke-width="2" />
+    <line x1="0" y1="45" x2="180" y2="45" stroke="#94A3B8" stroke-width="1" />
+    <text x="90" y="60" font-family="sans-serif" font-size="11" font-weight="bold" fill="#334155" text-anchor="middle">Google Career Certificates</text>
+    <text x="90" y="74" font-family="sans-serif" font-size="10" fill="#64748B" text-anchor="middle">Authorized Signatory</text>
+  </g>
+
+  <!-- Official Seal Center -->
+  <g transform="translate(500, 560)">
+    <circle cx="0" cy="0" r="38" fill="url(#goldBorder)" />
+    <circle cx="0" cy="0" r="33" fill="#FFFFFF" />
+    <circle cx="0" cy="0" r="30" fill="url(#goldBorder)" stroke="#FFF" stroke-width="1" />
+    <text x="0" y="-8" font-family="sans-serif" font-size="8" font-weight="bold" fill="#FFFFFF" text-anchor="middle">OFFICIAL</text>
+    <text x="0" y="5" font-family="sans-serif" font-size="9" font-weight="900" fill="#FFFFFF" text-anchor="middle">VERIFIED</text>
+    <text x="0" y="16" font-family="sans-serif" font-size="7" font-weight="bold" fill="#FFFFFF" text-anchor="middle">ACCREDITED</text>
+  </g>
+
+  <g transform="translate(680, 540)">
+    <!-- Signature 2 -->
+    <path d="M 10 32 Q 50 15, 90 35 T 160 20" fill="none" stroke="#1E293B" stroke-width="2" />
+    <line x1="0" y1="45" x2="180" y2="45" stroke="#94A3B8" stroke-width="1" />
+    <text x="90" y="60" font-family="sans-serif" font-size="11" font-weight="bold" fill="#334155" text-anchor="middle">Coursera Verification</text>
+    <text x="90" y="74" font-family="sans-serif" font-size="10" fill="#64748B" text-anchor="middle">Academic Council</text>
+  </g>
+
+  <!-- Bottom Verification Bar -->
+  <g transform="translate(80, 642)">
+    <text x="0" y="0" font-family="monospace" font-size="10" fill="#64748B">Date: Aug' 26</text>
+    <text x="420" y="0" font-family="monospace" font-size="10" fill="#64748B" text-anchor="middle">Credential ID: WDOGRHWYYN7H</text>
+    <text x="840" y="0" font-family="monospace" font-size="10" fill="#2563EB" text-anchor="end">coursera.org/verify/WDOGRHWYYN7H</text>
+  </g>
+</svg>

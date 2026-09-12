@@ -78,6 +78,7 @@ export interface Certification {
   modules?: string[];
   skills?: string[];
   accentColor?: string;
+  imageUrl?: string;
   type?: 'coursera-google' | 'coursera-meta' | 'iamneo' | 'infosys' | 'bgtechvista';
 }
 

@@ -1,4 +1,5 @@
 import React, { useRef, useState, useCallback } from 'react';
+import { useTheme } from '../context/ThemeContext';
 
 interface HoloCardProps {
   children: React.ReactNode;
@@ -15,10 +16,11 @@ export const HoloCard: React.FC<HoloCardProps> = ({
   className = '',
   maxTilt = 12,
   depthPop = true,
-  glareColor = 'rgba(239, 68, 68, 0.25)',
+  glareColor,
   onClick,
   id,
 }) => {
+  const { theme } = useTheme();
   const cardRef = useRef<HTMLDivElement>(null);
   const [rotateX, setRotateX] = useState<number>(0);
   const [rotateY, setRotateY] = useState<number>(0);
@@ -28,6 +30,8 @@ export const HoloCard: React.FC<HoloCardProps> = ({
     opacity: 0,
   });
   const [isHovered, setIsHovered] = useState<boolean>(false);
+
+  const activeGlareColor = glareColor || `rgba(${theme.rgb}, 0.25)`;
 
   const handleMouseMove = useCallback(
     (e: React.MouseEvent<HTMLDivElement>) => {
@@ -103,24 +107,24 @@ export const HoloCard: React.FC<HoloCardProps> = ({
           {children}
         </div>
 
-        {/* Dynamic Specular Holographic Glare */}
+        {/* Subtle Specular Glare */}
         <div
           aria-hidden="true"
-          className="absolute inset-0 rounded-xl pointer-events-none transition-opacity duration-300 z-30 overflow-hidden mix-blend-screen"
+          className="absolute inset-0 rounded-xl pointer-events-none transition-opacity duration-300 z-30 overflow-hidden"
           style={{
-            opacity: glarePos.opacity,
-            background: `radial-gradient(circle 280px at ${glarePos.x}% ${glarePos.y}%, ${glareColor}, rgba(255, 255, 255, 0.12) 40%, transparent 80%)`,
+            opacity: glarePos.opacity * 0.7,
+            background: `radial-gradient(circle 260px at ${glarePos.x}% ${glarePos.y}%, rgba(232, 117, 36, 0.07), transparent 70%)`,
           }}
         />
 
-        {/* Subtle Edge Prism Flare */}
+        {/* Subtle Warm Border & Shadow */}
         <div
           aria-hidden="true"
-          className="absolute inset-0 rounded-xl pointer-events-none border border-red-500/0 transition-all duration-300 z-20"
+          className="absolute inset-0 rounded-xl pointer-events-none border transition-all duration-300 z-20"
           style={{
-            borderColor: isHovered ? 'rgba(239, 68, 68, 0.4)' : 'transparent',
+            borderColor: isHovered ? 'rgba(232, 117, 36, 0.35)' : 'transparent',
             boxShadow: isHovered
-              ? `0 14px 28px -10px rgba(220, 38, 38, 0.35), 0 0 16px -2px rgba(239, 68, 68, 0.2)`
+              ? '0 12px 28px -6px rgba(43, 33, 27, 0.08), 0 4px 10px -2px rgba(43, 33, 27, 0.04)'
               : 'none',
           }}
         />

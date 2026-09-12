@@ -1,7 +1,9 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
+import { ThemeProvider } from './context/ThemeContext';
 import { Navbar } from './components/Navbar';
 import { Hero } from './components/Hero';
 import { ProjectsSection } from './components/ProjectsSection';
+import { CertificatesSection } from './components/CertificatesSection';
 import { SkillsSection } from './components/SkillsSection';
 import { ProcessAndEducation } from './components/ProcessAndEducation';
 import { ContactSection } from './components/ContactSection';
@@ -9,21 +11,19 @@ import { Footer } from './components/Footer';
 import { ResumeModal } from './components/ResumeModal';
 import { ScrollReveal } from './components/ScrollReveal';
 
-export default function App() {
+function PortfolioContent() {
   const [resumeModalOpen, setResumeModalOpen] = useState<boolean>(false);
 
-  useEffect(() => {
-    // Standard Dark Mode presentation active by default
-    document.documentElement.classList.add('dark');
-  }, []);
-
   return (
-    <div id="portfolio-app-root" className="min-h-screen bg-black text-white selection:bg-red-600 selection:text-white flex flex-col antialiased">
-      
+    <div 
+      id="portfolio-app-root" 
+      className="min-h-screen bg-[#FAF7F0] text-[#2B211B] flex flex-col antialiased"
+    >
       {/* Skip to main content for accessibility (WCAG AA) */}
       <a
         href="#main-content"
-        className="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:z-50 focus:px-4 focus:py-2 focus:bg-red-600 focus:text-white focus:rounded-lg focus:shadow-lg focus:outline-none"
+        className="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:z-50 focus:px-4 focus:py-2 text-white focus:rounded-lg focus:shadow-lg focus:outline-none"
+        style={{ backgroundColor: 'var(--theme-primary)' }}
       >
         Skip to main content
       </a>
@@ -35,7 +35,7 @@ export default function App() {
 
       {/* Main Content Sections */}
       <main id="main-content" className="flex-1">
-        {/* Executive Crimson Hero with Background Typography & Portrait */}
+        {/* Executive Hero with Background Typography & Portrait */}
         <Hero onOpenResumeModal={() => setResumeModalOpen(true)} />
 
         {/* Selected Engineering Projects Gallery */}
@@ -48,7 +48,12 @@ export default function App() {
           <SkillsSection />
         </ScrollReveal>
 
-        {/* 3-Column Education, Work Process & Solid Crimson Quote Section */}
+        {/* Verified Professional Accreditations & Credentials */}
+        <ScrollReveal viewportAmount={0.08} duration={0.7} distance={36}>
+          <CertificatesSection />
+        </ScrollReveal>
+
+        {/* 3-Column Education, Work Process & Theme Editorial Quote Section */}
         <ScrollReveal viewportAmount={0.08} duration={0.7} distance={36}>
           <ProcessAndEducation />
         </ScrollReveal>
@@ -67,7 +72,14 @@ export default function App() {
         isOpen={resumeModalOpen}
         onClose={() => setResumeModalOpen(false)}
       />
-
     </div>
+  );
+}
+
+export default function App() {
+  return (
+    <ThemeProvider>
+      <PortfolioContent />
+    </ThemeProvider>
   );
 }

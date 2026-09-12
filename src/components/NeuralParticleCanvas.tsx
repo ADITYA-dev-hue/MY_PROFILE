@@ -1,4 +1,5 @@
 import React, { useEffect, useRef, useState, useCallback } from 'react';
+import { useTheme } from '../context/ThemeContext';
 
 interface Particle3D {
   x: number;
@@ -32,6 +33,10 @@ interface Shockwave {
 }
 
 export const NeuralParticleCanvas: React.FC = () => {
+  const { theme } = useTheme();
+  const themeRef = useRef(theme);
+  themeRef.current = theme;
+
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const containerRef = useRef<HTMLDivElement>(null);
   const [interactiveMode, setInteractiveMode] = useState<boolean>(true);
@@ -46,6 +51,17 @@ export const NeuralParticleCanvas: React.FC = () => {
   });
 
   const shockwavesRef = useRef<Shockwave[]>([]);
+  const particlesRef = useRef<Particle3D[]>([]);
+
+  // Update existing particle colors when theme changes
+  useEffect(() => {
+    if (particlesRef.current.length > 0) {
+      const newColors = theme.particleColors;
+      particlesRef.current.forEach((p, idx) => {
+        p.color = newColors[idx % newColors.length];
+      });
+    }
+  }, [theme]);
 
   // Trigger shockwave on user click
   const handleCanvasClick = useCallback((e: React.MouseEvent<HTMLDivElement>) => {
@@ -128,13 +144,7 @@ export const NeuralParticleCanvas: React.FC = () => {
     const fieldRadius = Math.min(window.innerWidth, 1200) * 0.45;
     const depthRange = 380;
 
-    const colors = [
-      '#dc2626', // Crimson Red
-      '#ef4444', // Ruby Red
-      '#f87171', // Light Coral
-      '#fb7185', // Rose
-      '#ffffff', // White star
-    ];
+    const colors = themeRef.current.particleColors;
 
     const particles: Particle3D[] = [];
     for (let i = 0; i < particleCount; i++) {
@@ -161,6 +171,8 @@ export const NeuralParticleCanvas: React.FC = () => {
         pulsePhase: Math.random() * Math.PI * 2,
       });
     }
+
+    particlesRef.current = particles;
 
     // Active AI signal pulses traversing nodes
     const signalPackets: SignalPacket[] = [];
@@ -307,7 +319,7 @@ export const NeuralParticleCanvas: React.FC = () => {
             ctx.beginPath();
             ctx.moveTo(p1.projX, p1.projY);
             ctx.lineTo(p2.projX, p2.projY);
-            ctx.strokeStyle = `rgba(220, 38, 38, ${connectionAlpha})`;
+            ctx.strokeStyle = `rgba(${themeRef.current.rgb}, ${connectionAlpha})`;
             ctx.lineWidth = Math.max(0.4, 0.9 * ((p1.projScale + p2.projScale) / 2));
             ctx.stroke();
           }
@@ -336,7 +348,7 @@ export const NeuralParticleCanvas: React.FC = () => {
           ctx.beginPath();
           ctx.arc(sigX, sigY, 2.2 * sigScale, 0, Math.PI * 2);
           ctx.fillStyle = '#ffffff';
-          ctx.shadowColor = '#ef4444';
+          ctx.shadowColor = themeRef.current.primary;
           ctx.shadowBlur = 8;
           ctx.fill();
           ctx.shadowBlur = 0; // reset
@@ -361,7 +373,7 @@ export const NeuralParticleCanvas: React.FC = () => {
         if (alpha > 0.55) {
           ctx.beginPath();
           ctx.arc(projX, projY, radius * 2.2, 0, Math.PI * 2);
-          ctx.fillStyle = p.color === '#ffffff' ? 'rgba(239, 68, 68, 0.25)' : 'rgba(220, 38, 38, 0.18)';
+          ctx.fillStyle = p.color === '#ffffff' ? `rgba(${themeRef.current.rgb}, 0.25)` : `rgba(${themeRef.current.rgb}, 0.18)`;
           ctx.fill();
         }
       }
@@ -372,7 +384,7 @@ export const NeuralParticleCanvas: React.FC = () => {
         const sw = activeShockwaves[s];
         ctx.beginPath();
         ctx.arc(sw.x + centerX, sw.y + centerY, sw.radius, 0, Math.PI * 2);
-        ctx.strokeStyle = `rgba(239, 68, 68, ${sw.life * 0.5})`;
+        ctx.strokeStyle = `rgba(${themeRef.current.rgb}, ${sw.life * 0.5})`;
         ctx.lineWidth = 1.5;
         ctx.stroke();
       }

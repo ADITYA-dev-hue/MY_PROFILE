@@ -1,0 +1,196 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 707" width="1000" height="707">
+  <defs>
+    <linearGradient id="paperGrad" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#FCFAF6" />
+      <stop offset="50%" stop-color="#FFFFFF" />
+      <stop offset="100%" stop-color="#F9F5EE" />
+    </linearGradient>
+
+    <linearGradient id="ribbonGrad" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#D5DBE2" />
+      <stop offset="50%" stop-color="#E2E7ED" />
+      <stop offset="100%" stop-color="#CAD1D9" />
+    </linearGradient>
+
+    <filter id="ribbonShadow" x="-10%" y="0%" width="120%" height="115%">
+      <feDropShadow dx="0" dy="4" stdDeviation="5" flood-color="#000000" flood-opacity="0.12" />
+    </filter>
+
+    <!-- Guilloche Pattern Rosette -->
+    <pattern id="guillochePattern" width="160" height="160" patternUnits="userSpaceOnUse">
+      <circle cx="80" cy="80" r="70" fill="none" stroke="#E6DAC8" stroke-width="0.8" stroke-opacity="0.25" />
+      <circle cx="80" cy="80" r="50" fill="none" stroke="#E6DAC8" stroke-width="0.8" stroke-opacity="0.2" />
+      <circle cx="80" cy="80" r="30" fill="none" stroke="#E6DAC8" stroke-width="0.8" stroke-opacity="0.15" />
+      <path d="M 10 80 Q 80 10 150 80 Q 80 150 10 80 Z" fill="none" stroke="#E6DAC8" stroke-width="0.8" stroke-opacity="0.2" />
+      <path d="M 80 10 Q 150 80 80 150 Q 10 80 80 10 Z" fill="none" stroke="#E6DAC8" stroke-width="0.8" stroke-opacity="0.2" />
+    </pattern>
+  </defs>
+
+  <!-- Background Canvas -->
+  <rect width="1000" height="707" fill="url(#paperGrad)" />
+
+  <!-- Subtle Guilloche Background Overlay -->
+  <rect x="20" y="20" width="960" height="667" fill="url(#guillochePattern)" />
+
+  <!-- Circular Guilloche Center Backdrop -->
+  <g transform="translate(480, 360)" stroke="#DDCDBA" fill="none" stroke-width="0.9" opacity="0.4">
+    <ellipse rx="240" ry="180" transform="rotate(0)" />
+    <ellipse rx="240" ry="180" transform="rotate(15)" />
+    <ellipse rx="240" ry="180" transform="rotate(30)" />
+    <ellipse rx="240" ry="180" transform="rotate(45)" />
+    <ellipse rx="240" ry="180" transform="rotate(60)" />
+    <ellipse rx="240" ry="180" transform="rotate(75)" />
+    <ellipse rx="240" ry="180" transform="rotate(90)" />
+    <ellipse rx="240" ry="180" transform="rotate(105)" />
+    <ellipse rx="240" ry="180" transform="rotate(120)" />
+    <ellipse rx="240" ry="180" transform="rotate(135)" />
+    <ellipse rx="240" ry="180" transform="rotate(150)" />
+    <ellipse rx="240" ry="180" transform="rotate(165)" />
+    <circle r="190" stroke-width="1.2" stroke-dasharray="3,3" />
+    <circle r="130" stroke-width="0.8" />
+  </g>
+
+  <!-- Clean Certificate Border Frame -->
+  <rect x="22" y="22" width="956" height="663" fill="none" stroke="#C8CFD8" stroke-width="2.5" />
+  <rect x="27" y="27" width="946" height="653" fill="none" stroke="#E2E7ED" stroke-width="1" />
+  
+  <!-- Corner Decorative Corner Brackets -->
+  <g stroke="#9AA5B5" stroke-width="2" fill="none">
+    <path d="M 22 42 L 42 42 L 42 22" />
+    <path d="M 978 42 L 958 42 L 958 22" />
+    <path d="M 22 665 L 42 665 L 42 685" />
+    <path d="M 978 665 L 958 665 L 958 685" />
+  </g>
+
+  <!-- ================= RIGHT RIBBON BANNER ================= -->
+  <g transform="translate(660, 0)" filter="url(#ribbonShadow)">
+    <!-- Ribbon Path with V-Notch at Bottom -->
+    <path d="M 0 0 L 230 0 L 230 520 L 115 565 L 0 520 Z" fill="url(#ribbonGrad)" stroke="#B4BECB" stroke-width="1.2" />
+    
+    <!-- Inner Fine Border on Ribbon -->
+    <path d="M 8 0 L 222 0 L 222 513 L 115 555 L 8 513 Z" fill="none" stroke="#FFFFFF" stroke-opacity="0.6" stroke-width="1" />
+
+    <!-- Ribbon Title -->
+    <text x="115" y="125" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif" font-size="18" font-weight="700" letter-spacing="4" fill="#202124" text-anchor="middle">
+      COURSE
+    </text>
+    <text x="115" y="152" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif" font-size="18" font-weight="700" letter-spacing="4" fill="#202124" text-anchor="middle">
+      CERTIFICATE
+    </text>
+
+    <!-- Coursera Seal Emblem -->
+    <g transform="translate(115, 335)">
+      <!-- Outer Dotted Orbit -->
+      <circle r="92" fill="none" stroke="#2B2D31" stroke-width="2.5" />
+      <circle r="86" fill="none" stroke="#2B2D31" stroke-width="1" stroke-dasharray="2,2" />
+      <circle r="83" fill="#F8FAFC" stroke="#94A3B8" stroke-width="0.8" />
+      
+      <!-- Seal Arc Text Top -->
+      <path id="sealArcTop" d="M -70 0 A 70 70 0 0 1 70 0" fill="none" />
+      <text font-family="-apple-system, BlinkMacSystemFont, sans-serif" font-size="9" font-weight="800" fill="#202124" letter-spacing="2.5">
+        <textPath href="#sealArcTop" startOffset="50%" text-anchor="middle">
+          EDUCATION FOR EVERYONE
+        </textPath>
+      </text>
+
+      <!-- Seal Arc Text Bottom -->
+      <path id="sealArcBottom" d="M -70 0 A 70 70 0 0 0 70 0" fill="none" />
+      <text font-family="-apple-system, BlinkMacSystemFont, sans-serif" font-size="9" font-weight="800" fill="#202124" letter-spacing="2.5">
+        <textPath href="#sealArcBottom" startOffset="50%" text-anchor="middle">
+          COURSE CERTIFICATE
+        </textPath>
+      </text>
+
+      <!-- Inner Circle -->
+      <circle r="52" fill="#FFFFFF" stroke="#334155" stroke-width="2" />
+      <circle r="50" fill="#FFFFFF" stroke="#64748B" stroke-width="0.8" stroke-dasharray="3,2" />
+
+      <!-- Coursera Logo Mark -->
+      <text x="0" y="7" font-family="-apple-system, BlinkMacSystemFont, 'Inter', Roboto, sans-serif" font-size="20" font-weight="800" fill="#0056D2" text-anchor="middle" letter-spacing="-0.5">
+        coursera
+      </text>
+    </g>
+  </g>
+
+  <!-- ================= LEFT BODY SECTION ================= -->
+
+  <!-- Google Logo (Multicolor) -->
+  <g transform="translate(85, 105)">
+    <!-- SVG text Google with exact brand colors -->
+    <text font-family="'Product Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="64" font-weight="700">
+      <tspan fill="#4285F4">G</tspan>
+      <tspan fill="#EA4335">o</tspan>
+      <tspan fill="#FBBC05">o</tspan>
+      <tspan fill="#4285F4">g</tspan>
+      <tspan fill="#34A853">l</tspan>
+      <tspan fill="#EA4335">e</tspan>
+    </text>
+  </g>
+
+  <!-- Date -->
+  <text x="88" y="222" font-family="-apple-system, BlinkMacSystemFont, 'SF Pro Text', Roboto, sans-serif" font-size="14" font-weight="500" fill="#4B5563">
+    Jul 21, 2026
+  </text>
+
+  <!-- Recipient Name -->
+  <text x="88" y="278" font-family="'Times New Roman', Times, 'Playfair Display', Georgia, serif" font-size="40" font-weight="bold" fill="#1E2229" letter-spacing="0.5">
+    Aditya Prakash
+  </text>
+
+  <!-- Achievement Statement -->
+  <text x="88" y="325" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="15" fill="#4B5563">
+    has successfully completed
+  </text>
+
+  <!-- Certificate Course Title -->
+  <text x="88" y="375" font-family="-apple-system, BlinkMacSystemFont, 'SF Pro Display', Roboto, 'Segoe UI', sans-serif" font-size="28" font-weight="700" fill="#111827">
+    AI for Data Analysis
+  </text>
+
+  <!-- Authorized Subtext -->
+  <text x="88" y="415" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="14" fill="#4B5563">
+    an online course authorized by Google and offered through Coursera
+  </text>
+
+  <!-- Signature Section -->
+  <g transform="translate(88, 515)">
+    <!-- Fluid Amanda Brophy signature vector representation -->
+    <path d="M 5 18 C 15 5, 28 -2, 38 12 C 45 22, 50 8, 62 10 C 72 12, 85 18, 98 12 C 108 8, 120 16, 135 14 C 145 12, 160 5, 175 16 C 185 24, 195 10, 208 12 M 25 15 C 35 15, 60 14, 85 14 M 115 15 C 130 14, 155 12, 175 15 M 10 22 C 30 18, 70 20, 110 18" 
+          fill="none" stroke="#111827" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" />
+    
+    <!-- Dotted Guideline -->
+    <line x1="0" y1="30" x2="260" y2="30" stroke="#9CA3AF" stroke-width="1.2" stroke-dasharray="3,3" />
+
+    <!-- Signatory Info -->
+    <text x="0" y="47" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="13" font-weight="600" fill="#1F2937">
+      Amanda Brophy
+    </text>
+    <text x="0" y="64" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="11" fill="#4B5563">
+      Global Director of Google Career Certificates
+    </text>
+  </g>
+
+  <!-- ================= BOTTOM RIGHT VERIFICATION SECTION ================= -->
+  <g transform="translate(640, 595)">
+    <text x="0" y="0" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="12" fill="#4B5563">
+      Verify at:
+    </text>
+    <text x="0" y="18" font-family="-apple-system, BlinkMacSystemFont, 'SF Mono', monospace, sans-serif" font-size="13" font-weight="600" fill="#0056D2" text-decoration="underline">
+      https://coursera.org/verify/1OQ6THZN6NSS
+    </text>
+    <text x="0" y="36" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="11" fill="#4B5563">
+      Coursera has confirmed the identity of this individual and their
+    </text>
+    <text x="0" y="50" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="11" fill="#4B5563">
+      participation in the course.
+    </text>
+  </g>
+
+  <!-- ================= FOOTER DISCLAIMER ================= -->
+  <text x="500" y="674" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="9" fill="#9CA3AF" text-anchor="middle">
+    This certificate attests to the learner's completion of an online course / project delivered via Coursera. It does not constitute formal enrollment at any university or entity and does not itself grant academic credit, grades, or
+  </text>
+  <text x="500" y="687" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="9" fill="#9CA3AF" text-anchor="middle">
+    a degree. Institutions or organizations may, at their discretion, recognize this learning toward their own programs or credentials.
+  </text>
+</svg>

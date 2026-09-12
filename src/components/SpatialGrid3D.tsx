@@ -1,6 +1,8 @@
 import React, { useEffect, useRef } from 'react';
+import { useTheme } from '../context/ThemeContext';
 
 export const SpatialGrid3D: React.FC<{ className?: string }> = ({ className = '' }) => {
+  const { theme } = useTheme();
   const containerRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -40,21 +42,26 @@ export const SpatialGrid3D: React.FC<{ className?: string }> = ({ className = ''
       {/* 3D Perspective Plane */}
       <div
         ref={containerRef}
-        className="w-[140%] -left-[20%] h-[300px] absolute bottom-0 origin-bottom transition-transform will-change-transform opacity-30 dark:opacity-40"
+        className="w-[140%] -left-[20%] h-[300px] absolute bottom-0 origin-bottom transition-transform will-change-transform opacity-30"
         style={{
           transform: 'perspective(500px) rotateX(65deg) translateZ(0px)',
           backgroundImage: `
-            linear-gradient(to right, rgba(239, 68, 68, 0.25) 1px, transparent 1px),
-            linear-gradient(to bottom, rgba(239, 68, 68, 0.25) 1px, transparent 1px)
+            linear-gradient(to right, rgba(43, 33, 27, 0.08) 1px, transparent 1px),
+            linear-gradient(to bottom, rgba(43, 33, 27, 0.08) 1px, transparent 1px)
           `,
           backgroundSize: '40px 40px',
-          maskImage: 'linear-gradient(to top, rgba(0,0,0,1) 0%, rgba(0,0,0,0.6) 40%, transparent 100%)',
-          WebkitMaskImage: 'linear-gradient(to top, rgba(0,0,0,1) 0%, rgba(0,0,0,0.6) 40%, transparent 100%)',
+          maskImage: 'linear-gradient(to top, rgba(0,0,0,1) 0%, rgba(0,0,0,0.5) 40%, transparent 100%)',
+          WebkitMaskImage: 'linear-gradient(to top, rgba(0,0,0,1) 0%, rgba(0,0,0,0.5) 40%, transparent 100%)',
         }}
       />
 
-      {/* Horizon Laser Edge Glow */}
-      <div className="absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r from-transparent via-red-600/40 dark:via-red-500/60 to-transparent blur-xs"></div>
+      {/* Subtle Warm Horizon Edge */}
+      <div 
+        className="absolute bottom-0 left-0 right-0 h-px"
+        style={{
+          background: 'linear-gradient(to right, transparent, rgba(232, 117, 36, 0.25), transparent)',
+        }}
+      />
     </div>
   );
 };

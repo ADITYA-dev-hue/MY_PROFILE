@@ -7,12 +7,12 @@ export const PERSONAL_INFO = {
   tagline: 'Crafting intelligent data pipelines, predictive models, and modern web applications with algorithmic rigor.',
   bio: 'Computer Science & Engineering undergraduate at Lovely Professional University specializing in Python, SQL, C/C++, Java, Machine Learning, Power BI analytics, and full-stack AI development. Passionate about solving complex problems and turning raw data into high-impact digital experiences.',
   email: 'aditya04112006@gmail.com',
-  phone: '+91 7819448694',
+  phone: '+91 7619448694',
   location: 'Kapurthala, Punjab – 144411',
   detailedLocation: 'Lovely Professional University, Jalandhar-Delhi G.T. Road, Phagwara, Punjab, India, 144411',
   hometown: 'Kapurthala, Punjab / Bathinda Cantt',
-  github: 'https://github.com/ADITYA-dev-hue',
-  githubUsername: 'ADITYA-dev-hue',
+  github: 'https://github.com/ADITYA-prakash',
+  githubUsername: 'ADITYA-prakash',
   leetcode: 'https://leetcode.com/u/x2gyI6JfIR/',
   leetcodeUsername: 'x2gyI6JfIR',
   leetcodeDisplay: 'x2gyI6JfIR',
@@ -26,83 +26,131 @@ export const PERSONAL_INFO = {
   placementBatch: '2024 – 2028',
 };
 
+export const RESUME_SKILLS_SECTIONS = [
+  { category: 'Programming', skills: 'Python, SQL, C++, C, Java' },
+  { category: 'Data Analysis', skills: 'Pandas, NumPy, Data Cleaning, Statistics' },
+  { category: 'Data Visualisation', skills: 'Power BI, Tableau, Matplotlib, Excel' },
+  { category: 'BI & Analytics', skills: 'Power Query, DAX, Dashboard Development, KPI Analysis' },
+  { category: 'Machine Learning', skills: 'Scikit-learn, Machine Learning' },
+  { category: 'Web Development', skills: 'HTML, CSS, JavaScript, React, TypeScript' },
+  { category: 'Soft Skills', skills: 'Adaptability, Time Management, Quick Learner' },
+];
+
 export const SKILL_CATEGORIES: SkillCategory[] = [
   {
-    title: 'Languages',
+    title: 'Programming',
     description: 'Core programming and database query languages',
     iconName: 'Code',
     skills: [
+      { name: 'Python', level: 'Advanced', tags: ['Data Analysis', 'ML', 'Automation'] },
+      { name: 'SQL', level: 'Advanced', tags: ['Queries', 'RDBMS', 'Joins'] },
       { name: 'C++', level: 'Advanced', tags: ['OOP', 'DSA', 'Problem Solving'] },
-      { name: 'Python', level: 'Proficient', tags: ['Data Analysis', 'ML', 'Automation'] },
       { name: 'C', level: 'Proficient', tags: ['Pointers', 'Memory Architecture'] },
       { name: 'Java', level: 'Proficient', tags: ['OOP', 'Backend', 'NIIT Certified'] },
-      { name: 'SQL', level: 'Advanced', tags: ['MySQL', 'Queries', 'Joins'] },
     ],
   },
   {
-    title: 'Tools & Platforms',
-    description: 'Data science, analytics, and business intelligence toolkits',
+    title: 'Data Analysis & BI',
+    description: 'Data science, analytics, DAX, and business intelligence toolkits',
     iconName: 'BarChart3',
     skills: [
       { name: 'Pandas', level: 'Proficient', tags: ['DataFrames', 'Data Cleaning'] },
       { name: 'NumPy', level: 'Proficient', tags: ['Arrays', 'Vectorization'] },
-      { name: 'Matplotlib', level: 'Proficient', tags: ['Data Viz', 'Plotting'] },
-      { name: 'Scikit-learn', level: 'Proficient', tags: ['Machine Learning', 'Models'] },
-      { name: 'Tableau', level: 'Proficient', tags: ['Interactive BI', 'Storytelling'] },
       { name: 'Power BI', level: 'Advanced', tags: ['DAX', 'Power Query', 'Dashboards'] },
-      { name: 'Microsoft Excel', level: 'Advanced', tags: ['Formulas', 'Pivot Tables', 'KPIs'] },
+      { name: 'Tableau', level: 'Proficient', tags: ['Interactive BI', 'Storytelling'] },
+      { name: 'Matplotlib', level: 'Proficient', tags: ['Data Viz', 'Plotting'] },
+      { name: 'Excel', level: 'Advanced', tags: ['Formulas', 'Pivot Tables', 'KPIs'] },
+      { name: 'Power Query', level: 'Advanced', tags: ['ETL', 'Transformations'] },
+      { name: 'DAX', level: 'Advanced', tags: ['Measures', 'Calculations'] },
     ],
   },
   {
-    title: 'Concepts & Machine Learning',
+    title: 'Machine Learning & Concepts',
     description: 'Analytical methodologies and foundational computer science paradigms',
     iconName: 'Database',
     skills: [
+      { name: 'Scikit-learn', level: 'Proficient', tags: ['Machine Learning', 'Models'] },
       { name: 'Machine Learning', level: 'Proficient', tags: ['Supervised', 'Unsupervised', 'Pipelines'] },
       { name: 'Data Visualisation', level: 'Advanced', tags: ['KPIs', 'Executive Reports', 'Dashboards'] },
       { name: 'Data Cleaning', level: 'Advanced', tags: ['Feature Engineering', 'Preprocessing'] },
       { name: 'Statistics', level: 'Proficient', tags: ['Probability', 'Hypothesis Testing', 'Metrics'] },
+      { name: 'KPI Analysis', level: 'Advanced', tags: ['Metrics', 'Benchmarking'] },
     ],
   },
   {
-    title: 'Soft Skills & Workflow',
-    description: 'Professional engineering execution and repository collaboration',
-    iconName: 'GitBranch',
+    title: 'Web Development',
+    description: 'Frontend, reactive web interfaces, and modern UI architectures',
+    iconName: 'Code',
+    skills: [
+      { name: 'React', level: 'Advanced', tags: ['Components', 'Hooks', 'State'] },
+      { name: 'TypeScript', level: 'Advanced', tags: ['Type Safety', 'Interfaces'] },
+      { name: 'JavaScript', level: 'Advanced', tags: ['ES6+', 'Async', 'DOM'] },
+      { name: 'HTML & CSS', level: 'Advanced', tags: ['Responsive', 'Tailwind CSS'] },
+    ],
+  },
+  {
+    title: 'Soft Skills',
+    description: 'Professional execution, agile delivery, and collaborative mindset',
+    iconName: 'Sparkles',
     skills: [
       { name: 'Adaptability', level: 'Proficient', tags: ['Rapid Learning', 'Agile'] },
       { name: 'Time Management', level: 'Proficient', tags: ['Sprint Planning', 'Delivery'] },
-      { name: 'Git & GitHub', level: 'Proficient', tags: ['Branching', 'Open Source', 'CI/CD'] },
+      { name: 'Quick Learner', level: 'Advanced', tags: ['Curiosity', 'Initiative'] },
     ],
   },
 ];
 
 export const RAW_SKILLS = [
-  'C++',
   'Python',
+  'SQL',
+  'C++',
   'C',
   'Java',
-  'SQL',
   'Pandas',
   'NumPy',
-  'Matplotlib',
-  'Scikit-learn',
-  'Tableau',
-  'Power BI',
-  'Excel',
-  'Machine Learning',
-  'Data Visualisation',
   'Data Cleaning',
   'Statistics',
-  'Adaptability',
-  'Time Management',
-  'Git',
-  'GitHub',
+  'Power BI',
+  'Tableau',
+  'Matplotlib',
+  'Excel',
+  'Power Query',
+  'DAX',
+  'Dashboard Development',
+  'KPI Analysis',
+  'Scikit-learn',
+  'Machine Learning',
+  'HTML',
+  'CSS',
+  'JavaScript',
   'React',
   'TypeScript',
+  'Adaptability',
+  'Time Management',
+  'Quick Learner',
   'Gemini API',
+  'Vite',
+  'Tailwind CSS',
 ];
 
 export const CERTIFICATIONS: Certification[] = [
+  {
+    id: 'google-ai-data-analysis',
+    title: 'AI for Data Analysis',
+    subTitle: 'Course Certificate',
+    issuer: 'Google & Coursera',
+    badge: 'Google Authorized Certificate',
+    date: "Jul 21, 2026",
+    credentialId: '1OQ6THZN6NSS',
+    verificationUrl: 'https://coursera.org/verify/1OQ6THZN6NSS',
+    signatory: 'Amanda Brophy — Global Director of Google Career Certificates',
+    recipient: 'Aditya Prakash',
+    overview: 'An online course authorized by Google and offered through Coursera. Certified competency in applying AI tools to data analysis workflows, structured insight extraction, prompt-driven analysis, and automated decision intelligence.',
+    skills: ['AI Data Analysis', 'Generative AI', 'Prompt Engineering', 'Structured Insights', 'Decision Intelligence'],
+    accentColor: '#4285F4',
+    imageUrl: '/certificates/cert_google_ai_data_analysis.svg',
+    type: 'coursera-google'
+  },
   {
     id: 'google-ai',
     title: 'Google AI Professional Certificate',
@@ -126,6 +174,7 @@ export const CERTIFICATIONS: Certification[] = [
     ],
     skills: ['Artificial Intelligence', 'Generative AI', 'Prompt Engineering', 'AI Data Analysis', 'AI App Building'],
     accentColor: '#4285F4',
+    imageUrl: '/certificates/cert_google_ai.svg',
     type: 'coursera-google'
   },
   {
@@ -142,6 +191,7 @@ export const CERTIFICATIONS: Certification[] = [
     overview: 'An online course authorized by Meta and offered through Coursera. Certified proficiency in modern front-end web fundamentals, responsive interfaces, UI component hierarchies, and browser rendering lifecycles.',
     skills: ['Frontend Architecture', 'HTML5 & CSS3', 'JavaScript & Web Standards', 'Responsive UI', 'UI Components'],
     accentColor: '#0081FB',
+    imageUrl: '/certificates/cert_meta_frontend.svg',
     type: 'coursera-meta'
   },
   {
@@ -157,6 +207,7 @@ export const CERTIFICATIONS: Certification[] = [
     overview: 'Awarded by Infosys Springboard for successfully completing the comprehensive Database Management System Part - 1 program covering relational data modeling, query optimization, and transaction management.',
     skills: ['RDBMS Architecture', 'SQL Queries & Optimization', 'Database Normalization', 'Relational Algebra', 'Data Integrity'],
     accentColor: '#007CC3',
+    imageUrl: '/certificates/cert_infosys_dbms.svg',
     type: 'infosys'
   },
   {
@@ -173,6 +224,7 @@ export const CERTIFICATIONS: Certification[] = [
     overview: 'Certificate of Appreciation proudly presented for successfully completing Programming in JAVA, demonstrating strong commitment, consistency, and excellence throughout the course duration.',
     skills: ['Core Java', 'Object Oriented Programming (OOP)', 'Collections Framework', 'Exception Handling', 'Algorithms in Java'],
     accentColor: '#EA580C',
+    imageUrl: '/certificates/cert_java_niit.svg',
     type: 'iamneo'
   },
   {
@@ -189,70 +241,95 @@ export const CERTIFICATIONS: Certification[] = [
     overview: 'Underwent 2-Month Intensive Professional Course in C / C++. Certified as a hardworking & innovative individual with strong command over low-level memory management, pointers, and object-oriented architectures.',
     skills: ['C Programming', 'C++ OOP', 'Pointers & Dynamic Memory', 'Data Structures', 'File Handling & Algorithms'],
     accentColor: '#DC2626',
+    imageUrl: '/certificates/cert_cpp_bgtechvista.svg',
     type: 'bgtechvista'
   },
 ];
 
-export const RESUME_CERTIFICATES = [
+export interface ResumeCertificate {
+  title: string;
+  issuer: string;
+  date: string;
+  credentialUrl?: string;
+  imageUrl?: string;
+}
+
+export const RESUME_CERTIFICATES: ResumeCertificate[] = [
+  {
+    title: 'AI for Data Analysis',
+    issuer: 'Google & Coursera',
+    date: "Jul’ 26",
+    credentialUrl: 'https://coursera.org/verify/1OQ6THZN6NSS',
+    imageUrl: '/certificates/cert_google_ai_data_analysis.svg',
+  },
   {
     title: 'Introduction to Front-End Development',
     issuer: 'Meta & Coursera',
-    date: "Aug' 2026",
+    date: "Aug’ 26",
+    credentialUrl: 'https://www.coursera.org/account/accomplishments/verify/9MMUP2UFGZEX',
+    imageUrl: '/certificates/cert_meta_frontend.svg',
   },
   {
     title: 'Google AI Professional Certificate',
     issuer: 'Coursera & Google',
-    date: "Aug' 2026",
+    date: "Aug’ 26",
+    credentialUrl: 'https://www.coursera.org/account/accomplishments/specialization/WDOGRHWYYN7H',
+    imageUrl: '/certificates/cert_google_ai.svg',
   },
   {
     title: 'Database Management System',
     issuer: 'Infosys',
-    date: "July' 2026",
+    date: "July’ 26",
+    imageUrl: '/certificates/cert_infosys_dbms.svg',
   },
   {
     title: 'Programming in Java',
-    issuer: 'NIIT × LPU',
-    date: "May' 2026",
+    issuer: 'NIIT & LPU',
+    date: "May’ 26",
+    imageUrl: '/certificates/cert_java_niit.svg',
   },
   {
     title: 'Professional Course in C/C++',
     issuer: 'BG TechVista',
-    date: "July' 2025",
+    date: "July’ 25",
+    imageUrl: '/certificates/cert_cpp_bgtechvista.svg',
   },
 ];
 
 export const TRAINING_EXPERIENCE = [
   {
-    role: 'Full Stack Web Development Intern',
+    role: 'Full Stack Web Developer Intern',
     company: 'Uplyx Solution',
-    domain: 'Data Science using Python',
     period: "Aug' 26 – Present",
     location: 'Remote / Hybrid',
     highlights: [
-      'Worked on industry-oriented projects as part of a structured Full Stack Web Development internship, applying concepts through practical assignments and project-based tasks.',
-      'Gained hands-on experience with frontend and web development workflows while working with professional tools, methodologies, and problem-solving approaches.',
-      'Applied technical concepts to practical projects, strengthening skills in web development and gaining exposure to real-world industry practices.',
+      'Working on full-stack web development projects through practical assignments and industry-oriented project tasks.',
+      'Developing responsive web applications while applying frontend, backend, debugging, and problem-solving concepts.',
+      'Applying technical concepts to practical projects, strengthening web development skills and gaining exposure to real-world industry practices.',
     ],
   },
 ];
+
+export const INTERNSHIP_EXPERIENCE = TRAINING_EXPERIENCE;
 
 export const PROJECTS: Project[] = [
   {
     id: 'ipl-player-analysis',
     title: 'IPL Player Analysis',
     subtitle: 'Interactive Multi-Season Cricket Intelligence & Performance Suite.',
-    description: 'Analyzed IPL data covering 760+ players across 10 franchises to provide insights into batting, bowling, rankings, and overall player performance.',
-    fullDescription: 'Analyzed IPL data covering 760+ players across 10 franchises to provide insights into batting, bowling, rankings, and overall player performance. Integrated CSV-based IPL data and created interactive KPIs, charts, player ratings, and performance comparisons for easier player evaluation. Built and deployed a responsive analytics application using React, TypeScript, TanStack, Vite, and Tailwind CSS, with Lovable-assisted development, GitHub, and Vercel.',
+    description: 'Examined IPL player performance data covering 760+ players across 10 franchises to identify trends in batting, bowling, rankings, and overall performance.',
+    fullDescription: 'Examined IPL player performance data covering 760+ players across 10 franchises to identify trends in batting, bowling, rankings, and overall performance. Developed interactive KPIs, charts, player ratings, and performance comparisons from CSV-based IPL data to support player evaluation. Built and deployed a responsive analytics application using React, TypeScript, TanStack, Vite, and Tailwind CSS, with Lovable-assisted development, GitHub, and Vercel.',
     category: 'data-analytics',
     technologies: ['React', 'TypeScript', 'TanStack', 'Vite', 'Tailwind CSS', 'Chart.js', 'Recharts', 'Three.js'],
     metrics: ['760+ Players Analyzed', '10 IPL Franchises', 'Sub-Second KPI Slicing'],
     keyFeatures: [
-      'Analyzed IPL data covering 760+ players across 10 franchises to provide insights into batting, bowling, rankings, and overall player performance.',
-      'Integrated CSV-based IPL data and created interactive KPIs, charts, player ratings, and performance comparisons for easier player evaluation.',
+      'Examined IPL player performance data covering 760+ players across 10 franchises to identify trends in batting, bowling, rankings, and overall performance.',
+      'Developed interactive KPIs, charts, player ratings, and performance comparisons from CSV-based IPL data to support player evaluation.',
       'Built and deployed a responsive analytics application using React, TypeScript, TanStack, Vite, and Tailwind CSS, with Lovable-assisted development, GitHub, and Vercel.',
     ],
     architectureSummary: 'High-performance React & TypeScript application leveraging TanStack, Chart.js, Recharts, and Three.js for multi-dimensional sports telemetry visualization.',
-    githubUrl: 'https://github.com/ADITYA-dev-hue/Player-Analysis',
+    githubUrl: 'https://github.com/ADITYA-prakash/Player-Analysis',
+    liveUrl: 'https://player-analysis.vercel.app',
     imageUrl: '/project_ipl_dashboard.jpg',
     featured: true,
     stars: 1,
@@ -261,18 +338,18 @@ export const PROJECTS: Project[] = [
     id: 'power-generation-dashboard',
     title: 'Power Generation Dashboard (2011-2017)',
     subtitle: 'National Energy Grid Trends & Sector-Wise Geospatial Analytics.',
-    description: 'Analyzed India’s power generation data from 2011–2017, covering 624M total energy generated units and 62M total installed capacity, with year-wise and energy-source-wise analysis.',
-    fullDescription: 'Analyzed India’s power generation data from 2011–2017, covering 624M total energy generated units and 62M total installed capacity, with year-wise and energy-source-wise analysis. Visualized power generation across multiple states, regions, sectors, and energy sources, including rankings of the Top 5 states and Top 5 power stations using interactive charts, maps, KPIs, and filters. Applied Power Query, DAX, Excel, data cleaning, and data analysis to transform the dataset into an interactive Power BI dashboard, including region-wise capacity analysis across five regions and sector-wise generation insights.',
+    description: 'Analysed India’s power generation data from 2011–2017, covering 624M total energy generated units and 62M total installed capacity, with year-wise and energy-source-wise analysis.',
+    fullDescription: 'Analysed India’s power generation data from 2011–2017, covering 624M total energy generated units and 62M total installed capacity, with year-wise and energy-source-wise analysis. Visualised power generation across multiple states, regions, sectors, and energy sources, including rankings of the Top 5 states and Top 5 power stations using interactive charts, maps, KPIs, and filters. Applied Power Query, DAX, Excel, data cleaning, and data analysis to transform the dataset into an interactive Power BI dashboard, including region-wise capacity analysis across five regions and sector-wise generation insights.',
     category: 'data-analytics',
-    technologies: ['Power BI', 'Excel', 'NDAP Dataset', 'DAX', 'Power Query', 'Data Cleaning'],
+    technologies: ['Power BI', 'Excel', 'NDAP Dataset'],
     metrics: ['624M Energy Units Mapped', '62M Installed Capacity', 'Top 5 Power Stations'],
     keyFeatures: [
-      'Analyzed India’s power generation data from 2011–2017, covering 624M total energy generated units and 62M total installed capacity, with year-wise and energy-source-wise analysis.',
-      'Visualized power generation across multiple states, regions, sectors, and energy sources, including rankings of the Top 5 states and Top 5 power stations using interactive charts, maps, KPIs, and filters.',
+      'Analysed India’s power generation data from 2011–2017, covering 624M total energy generated units and 62M total installed capacity, with year-wise and energy-source-wise analysis.',
+      'Visualised power generation across multiple states, regions, sectors, and energy sources, including rankings of the Top 5 states and Top 5 power stations using interactive charts, maps, KPIs, and filters.',
       'Applied Power Query, DAX, Excel, data cleaning, and data analysis to transform the dataset into an interactive Power BI dashboard, including region-wise capacity analysis across five regions and sector-wise generation insights.',
     ],
     architectureSummary: 'NDAP national datasets transformed via Power Query and DAX measures into an interactive, multi-region geospatial energy intelligence dashboard.',
-    githubUrl: 'https://github.com/ADITYA-dev-hue/POWER-BI-DASHBOARD',
+    githubUrl: 'https://github.com/ADITYA-prakash/POWER-BI-DASHBOARD',
     imageUrl: '/project_power_generation.jpg',
     featured: true,
     stars: 1,
@@ -281,18 +358,18 @@ export const PROJECTS: Project[] = [
     id: 'eduprep-ai-learning-platform',
     title: 'EduPrep AI Learning Platform',
     subtitle: 'Intelligent AI-Powered Study Assistant & Concept Tutor.',
-    description: 'Created an AI-powered learning platform using HTML, CSS, JavaScript, and Gemini API with user authentication, responsive modules, and intelligent tutoring.',
-    fullDescription: 'Created an AI-powered learning platform using HTML, CSS, JavaScript, and Gemini API. Implemented user authentication with Local Storage, responsive learning modules, and AI-powered features. Integrated the Gemini API to gain practical experience in API integration, JavaScript, frontend development, and AI applications.',
+    description: 'Designed and launched an AIpowered educational portal with Gemini API, achieving a 95% user satisfaction rate through tailored learning modules and interactive feedback.',
+    fullDescription: 'Designed and launched an AIpowered educational portal with Gemini API, achieving a 95% user satisfaction rate through tailored learning modules and interactive feedback. Implemented user authentication with Local Storage, responsive learning modules, and AI-powered features. Integrated the Gemini API to gain practical experience in API integration, JavaScript, frontend development, and AI applications.',
     category: 'ai',
-    technologies: ['HTML', 'CSS', 'JavaScript', 'Gemini API', 'LocalStorage'],
-    metrics: ['Real-Time AI Tutoring', 'Local Storage Auth', 'Zero-Latency Study Tracks'],
+    technologies: ['HTML', 'CSS', 'JavaScript', 'Gemini API'],
+    metrics: ['95% User Satisfaction', 'Real-Time AI Tutoring', 'Local Storage Auth'],
     keyFeatures: [
-      'Created an AI-powered learning platform using HTML, CSS, JavaScript, and Gemini API.',
+      'Designed and launched an AIpowered educational portal with Gemini API, achieving a 95% user satisfaction rate through tailored learning modules and interactive feedback.',
       'Implemented user authentication with Local Storage, responsive learning modules, and AI-powered features.',
       'Integrated the Gemini API to gain practical experience in API integration, JavaScript, frontend development, and AI applications.',
     ],
     architectureSummary: 'Modern JavaScript application seamlessly integrating Google Gemini API endpoints and client-side LocalStorage session management.',
-    githubUrl: 'https://github.com/ADITYA-dev-hue/AI-Edu-Prep-NEW-',
+    githubUrl: 'https://github.com/ADITYA-prakash/AI-Edu-Prep-NEW-',
     imageUrl: '/project_eduprep_ai.jpg',
     featured: true,
     stars: 1,
@@ -308,16 +385,22 @@ export const EDUCATION_LIST: EducationEntry[] = [
     period: "Aug' 24 – Present",
     highlights: [
       'Specializing in Data Structures, Algorithms, Python Analytics, Machine Learning & Database Systems.',
-      'Academic CGPA: 8.53',
     ],
   },
   {
-    degree: 'Class XII – Science',
+    degree: 'Intermediate',
     institution: 'Kendriya Vidyalaya Bathinda Cantt',
     location: 'Bathinda Cantt, Punjab',
     period: "Mar' 23 – May' 24",
-    grade: 'Percentage: 71.5%',
+    grade: 'PCM; Percentage:71.5%',
     highlights: ['Core subjects: Physics, Chemistry, Mathematics, Computer Science.'],
+  },
+  {
+    degree: 'Matriculate',
+    institution: 'Kendriya Vidyalaya Bathinda Cantt',
+    location: 'Bathinda Cantt, Punjab',
+    period: "Mar' 21 – May' 22",
+    grade: 'Percentage:76.7%',
   },
 ];
 
@@ -337,8 +420,8 @@ export const CODING_PROFILES: CodingProfile[] = [
   },
   {
     platform: 'GitHub',
-    username: 'ADITYA-dev-hue',
-    url: 'https://github.com/ADITYA-dev-hue',
+    username: 'ADITYA-prakash',
+    url: 'https://github.com/ADITYA-prakash',
     stats: '15 Repositories • 180+ Commits',
     badge: 'Python & Web App Creator',
     color: 'from-zinc-700 to-zinc-900',

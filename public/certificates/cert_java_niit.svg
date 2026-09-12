@@ -1,0 +1,109 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 700" width="1000" height="700">
+  <defs>
+    <linearGradient id="neoBg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#FFFDFB" />
+      <stop offset="50%" stop-color="#FFFFFF" />
+      <stop offset="100%" stop-color="#FDF8F3" />
+    </linearGradient>
+    <linearGradient id="orangeGrad" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#C2410C" />
+      <stop offset="100%" stop-color="#EA580C" />
+    </linearGradient>
+    <linearGradient id="lpuGold" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#B45309" />
+      <stop offset="100%" stop-color="#F59E0B" />
+    </linearGradient>
+  </defs>
+
+  <rect width="1000" height="700" fill="url(#neoBg)" />
+
+  <!-- Borders -->
+  <rect x="25" y="25" width="950" height="650" rx="6" fill="none" stroke="url(#orangeGrad)" stroke-width="4" />
+  <rect x="35" y="35" width="930" height="630" fill="none" stroke="#FDBA74" stroke-width="1.5" />
+  <rect x="42" y="42" width="916" height="616" fill="none" stroke="#FED7AA" stroke-dasharray="6,4" stroke-width="1.5" />
+
+  <!-- Top Headers: iamneo and LPU -->
+  <g transform="translate(80, 75)">
+    <text x="0" y="24" font-family="sans-serif" font-size="22" font-weight="900" fill="#EA580C">iamneo</text>
+    <text x="90" y="24" font-family="sans-serif" font-size="14" font-weight="bold" fill="#64748B">neo colab</text>
+    <text x="0" y="40" font-family="sans-serif" font-size="10" font-weight="600" fill="#9A3412">AN NIIT VENTURE</text>
+  </g>
+
+  <g transform="translate(730, 75)">
+    <rect x="0" y="0" width="180" height="42" rx="4" fill="#FFF7ED" stroke="#FDBA74" />
+    <text x="90" y="26" font-family="sans-serif" font-size="12" font-weight="bold" fill="#9A3412" text-anchor="middle">In Association With LPU</text>
+  </g>
+
+  <!-- Certificate Heading -->
+  <text x="500" y="180" font-family="sans-serif" font-size="15" font-weight="800" letter-spacing="4" fill="#EA580C" text-anchor="middle">
+    CERTIFICATE OF APPRECIATION
+  </text>
+  <line x1="360" y1="195" x2="640" y2="195" stroke="url(#lpuGold)" stroke-width="2" />
+
+  <text x="500" y="240" font-family="serif" font-size="16" font-style="italic" fill="#78350F" text-anchor="middle">
+    This is proudly presented to
+  </text>
+
+  <!-- Recipient -->
+  <text x="500" y="295" font-family="serif" font-size="44" font-weight="bold" fill="#1E293B" text-anchor="middle">
+    Aditya Prakash
+  </text>
+  <line x1="280" y1="315" x2="720" y2="315" stroke="#FDBA74" stroke-width="1" />
+
+  <text x="500" y="355" font-family="sans-serif" font-size="15" fill="#4B5563" text-anchor="middle">
+    for outstanding commitment, consistency, and successful completion of
+  </text>
+
+  <!-- Course Name -->
+  <text x="500" y="410" font-family="sans-serif" font-size="34" font-weight="900" fill="#C2410C" text-anchor="middle">
+    Programming in JAVA
+  </text>
+  <text x="500" y="440" font-family="sans-serif" font-size="13" font-weight="600" fill="#78716C" text-anchor="middle">
+    Duration: 18-Jan-2026 to 20-May-2026 • Issued: 21-May-2026
+  </text>
+
+  <!-- Skill Chips -->
+  <g transform="translate(180, 475)">
+    <rect x="0" y="0" width="130" height="26" rx="13" fill="#FFF7ED" stroke="#FFEDD5" />
+    <text x="65" y="17" font-family="sans-serif" font-size="11" font-weight="600" fill="#C2410C" text-anchor="middle">Core Java</text>
+
+    <rect x="140" y="0" width="180" height="26" rx="13" fill="#FFF7ED" stroke="#FFEDD5" />
+    <text x="230" y="17" font-family="sans-serif" font-size="11" font-weight="600" fill="#C2410C" text-anchor="middle">Object Oriented (OOP)</text>
+
+    <rect x="330" y="0" width="170" height="26" rx="13" fill="#FFF7ED" stroke="#FFEDD5" />
+    <text x="415" y="17" font-family="sans-serif" font-size="11" font-weight="600" fill="#C2410C" text-anchor="middle">Collections Framework</text>
+
+    <rect x="510" y="0" width="140" height="26" rx="13" fill="#FFF7ED" stroke="#FFEDD5" />
+    <text x="580" y="17" font-family="sans-serif" font-size="11" font-weight="600" fill="#C2410C" text-anchor="middle">Algorithms in Java</text>
+  </g>
+
+  <!-- Signatures -->
+  <g transform="translate(180, 545)">
+    <path d="M 10 32 Q 50 15, 90 32 T 160 22" fill="none" stroke="#C2410C" stroke-width="2" />
+    <line x1="0" y1="42" x2="200" y2="42" stroke="#CBD5E1" stroke-width="1" />
+    <text x="100" y="58" font-family="sans-serif" font-size="11" font-weight="bold" fill="#1E293B" text-anchor="middle">SENTHIKUMAR TP</text>
+    <text x="100" y="72" font-family="sans-serif" font-size="10" fill="#64748B" text-anchor="middle">Academic Lead, iamneo</text>
+  </g>
+
+  <!-- Golden Seal -->
+  <g transform="translate(500, 560)">
+    <circle cx="0" cy="0" r="34" fill="url(#orangeGrad)" />
+    <circle cx="0" cy="0" r="28" fill="#FFFFFF" />
+    <text x="0" y="-4" font-family="sans-serif" font-size="8" font-weight="bold" fill="#C2410C" text-anchor="middle">NIIT × LPU</text>
+    <text x="0" y="8" font-family="sans-serif" font-size="8" font-weight="bold" fill="#B45309" text-anchor="middle">VERIFIED</text>
+  </g>
+
+  <g transform="translate(630, 545)">
+    <path d="M 10 28 Q 60 10, 100 30 T 170 20" fill="none" stroke="#1E293B" stroke-width="2" />
+    <line x1="0" y1="42" x2="200" y2="42" stroke="#CBD5E1" stroke-width="1" />
+    <text x="100" y="58" font-family="sans-serif" font-size="11" font-weight="bold" fill="#1E293B" text-anchor="middle">Lovely Professional University</text>
+    <text x="100" y="72" font-family="sans-serif" font-size="10" fill="#64748B" text-anchor="middle">Department of Computer Science</text>
+  </g>
+
+  <!-- Footer -->
+  <g transform="translate(80, 645)">
+    <text x="0" y="0" font-family="monospace" font-size="10" fill="#64748B">Issue Date: 21-May-2026</text>
+    <text x="420" y="0" font-family="monospace" font-size="10" fill="#64748B" text-anchor="middle">ID: 22DJ3BK15L9bM5Dj3Bk1</text>
+    <text x="840" y="0" font-family="monospace" font-size="10" fill="#EA580C" text-anchor="end">iamneo.ai / neo-colab</text>
+  </g>
+</svg>

@@ -10,6 +10,7 @@ import {
 import { PERSONAL_INFO } from '../data/portfolioData';
 import { generateResumePDF } from '../utils/pdfGenerator';
 import { SkillLogo } from './SkillLogo';
+import { useTheme } from '../context/ThemeContext';
 
 interface NavbarProps {
   onOpenResumeModal: () => void;
@@ -18,6 +19,7 @@ interface NavbarProps {
 export const Navbar: React.FC<NavbarProps> = ({
   onOpenResumeModal,
 }) => {
+  const { theme } = useTheme();
   const [isScrolled, setIsScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
@@ -33,6 +35,7 @@ export const Navbar: React.FC<NavbarProps> = ({
     { name: 'About', href: '#hero' },
     { name: 'Projects', href: '#projects' },
     { name: 'Skills', href: '#skills-arsenal' },
+    { name: 'Certificates', href: '#certificates' },
     { name: 'Education', href: '#education-skills' },
     { name: 'Contact', href: '#contact' },
   ];
@@ -47,24 +50,35 @@ export const Navbar: React.FC<NavbarProps> = ({
       className="fixed top-0 left-0 right-0 z-50 transition-all duration-300"
     >
       {/* Top Banner Ribbon */}
-      <div className="bg-zinc-100 dark:bg-black/90 text-[10px] sm:text-[11px] font-semibold tracking-wider uppercase border-b border-red-200 dark:border-red-900/30 text-zinc-700 dark:text-zinc-400 py-1.5 px-4 sm:px-8 flex items-center justify-between transition-colors">
+      <div className="bg-[#F4EEE4] text-[10px] sm:text-[11px] font-medium tracking-wider uppercase border-b border-[#EADBCE] text-[#6B3F25] py-1.5 px-4 sm:px-8 flex items-center justify-between transition-colors">
         <div className="flex items-center gap-2">
-          <span className="text-red-600 dark:text-red-500 font-bold">AI-ACCELERATED FULL-STACK DATA DEVELOPER</span>
-          <span className="text-zinc-400 dark:text-zinc-600 hidden sm:inline">•</span>
-          <span className="hidden sm:inline text-zinc-600 dark:text-zinc-400">CS UNDERGRAD &amp; FULL-STACK CREATOR</span>
+          <span 
+            className="font-bold tracking-widest text-[11px]"
+            style={{ color: '#E87524' }}
+          >
+            AI-ACCELERATED FULL-STACK DATA DEVELOPER
+          </span>
+          <span className="text-[#C4B7A6] hidden sm:inline">•</span>
+          <span className="hidden sm:inline text-[#746A61] font-mono text-[10px]">CS UNDERGRAD &amp; FULL-STACK CREATOR</span>
         </div>
         
-        <div className="flex items-center gap-2 text-red-600 dark:text-red-400 font-bold">
-          <span className="w-1.5 h-1.5 rounded-full bg-red-600 dark:bg-red-500 animate-pulse"></span>
-          <span>AVAILABLE FOR PLACEMENTS 2026 ✦</span>
+        <div 
+          className="flex items-center gap-2 font-semibold text-xs transition-colors"
+          style={{ color: '#E87524' }}
+        >
+          <span 
+            className="w-1.5 h-1.5 rounded-full animate-pulse"
+            style={{ backgroundColor: '#E87524' }}
+          />
+          <span className="font-mono text-[11px] tracking-wider">AVAILABLE FOR PLACEMENTS 2026 ✦</span>
         </div>
       </div>
 
       {/* Main Nav Bar */}
       <div className={`transition-all duration-300 ${
         isScrolled 
-          ? 'bg-white/95 dark:bg-zinc-950/90 backdrop-blur-md border-b border-zinc-200 dark:border-zinc-800/80 py-3 shadow-md dark:shadow-lg dark:shadow-black/50' 
-          : 'bg-white/80 dark:bg-transparent backdrop-blur-sm dark:backdrop-blur-none py-3.5 sm:py-4 border-b border-zinc-200/60 dark:border-transparent'
+          ? 'bg-[#FAF7F0]/95 backdrop-blur-md border-b border-[#EADBCE] py-2.5 sm:py-3 shadow-[0_2px_12px_rgba(43,33,27,0.04)]' 
+          : 'bg-[#FAF7F0]/85 backdrop-blur-sm py-3 sm:py-3.5 border-b border-[#EADBCE]/60'
       }`}>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between">
@@ -75,15 +89,19 @@ export const Navbar: React.FC<NavbarProps> = ({
               id="brand-logo"
               className="flex items-center gap-3 group focus:outline-none rounded-lg"
             >
-              <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-red-600 to-rose-900 text-white flex items-center justify-center font-display text-xl tracking-wider shadow-md shadow-red-600/30 dark:shadow-red-950/40 group-hover:scale-105 transition-transform">
+              <div 
+                className="w-9 h-9 rounded-lg bg-[#E87524] text-white flex items-center justify-center font-serif text-lg font-bold shadow-sm group-hover:scale-105 transition-all"
+              >
                 AP
               </div>
               <div className="flex flex-col text-left">
-                <span className="font-display text-xl tracking-wider text-zinc-900 dark:text-white group-hover:text-red-600 dark:group-hover:text-red-500 transition-colors uppercase">
+                <span 
+                  className="font-serif text-lg font-bold tracking-tight text-[#2B211B] transition-colors leading-tight"
+                >
                   {PERSONAL_INFO.name}
                 </span>
-                <span className="text-[10px] font-mono tracking-widest text-zinc-500 dark:text-zinc-400 uppercase">
-                  AI-ACCELERATED FULL-STACK DATA DEVELOPER
+                <span className="text-[10px] font-mono tracking-widest text-[#746A61] uppercase">
+                  Data Science &amp; AI Developer
                 </span>
               </div>
             </a>
@@ -95,7 +113,7 @@ export const Navbar: React.FC<NavbarProps> = ({
                   key={link.name}
                   id={`nav-link-${link.name.toLowerCase().replace(/[^a-z0-9]/g, '-')}`}
                   href={link.href}
-                  className="px-3.5 py-1.5 text-xs font-semibold uppercase tracking-wider text-zinc-700 dark:text-zinc-300 hover:text-red-600 dark:hover:text-red-400 hover:bg-zinc-100 dark:hover:bg-zinc-900/80 rounded-lg transition-colors"
+                  className="px-3.5 py-1.5 text-[14px] font-semibold text-[#2B211B] hover:text-[#E87524] hover:bg-[#F3EDE2] rounded-lg transition-colors"
                 >
                   {link.name}
                 </a>
@@ -103,14 +121,14 @@ export const Navbar: React.FC<NavbarProps> = ({
             </nav>
 
             {/* Action CTAs */}
-            <div className="hidden lg:flex items-center gap-2.5">
+            <div className="hidden lg:flex items-center gap-2">
               {/* Vercel Projects Space */}
               <a
                 id="nav-vercel-link"
                 href={PERSONAL_INFO.vercel}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="p-2 text-zinc-600 dark:text-zinc-300 hover:text-zinc-950 dark:hover:text-white hover:bg-zinc-100 dark:bg-zinc-900/40 dark:hover:bg-zinc-900 border border-transparent dark:border-zinc-800 rounded-lg transition-colors flex items-center gap-1.5 text-xs font-semibold"
+                className="p-2 text-[#6B3F25] hover:text-[#2B211B] hover:bg-[#F3EDE2] border border-[#EADBCE] rounded-lg transition-colors flex items-center gap-1.5 text-xs font-semibold"
                 aria-label="Aditya Prakash Vercel Projects"
                 title="View Vercel Deployments"
               >
@@ -126,7 +144,7 @@ export const Navbar: React.FC<NavbarProps> = ({
                 href={PERSONAL_INFO.linkedin}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="p-2 text-zinc-600 dark:text-zinc-300 hover:text-red-600 dark:hover:text-red-400 hover:bg-zinc-100 dark:hover:bg-zinc-900 rounded-lg transition-colors"
+                className="p-2 text-[#6B3F25] hover:text-[#2B211B] hover:bg-[#F3EDE2] border border-[#EADBCE] rounded-lg transition-colors"
                 aria-label="Aditya Prakash LinkedIn Profile"
                 title="View LinkedIn Profile"
               >
@@ -139,7 +157,7 @@ export const Navbar: React.FC<NavbarProps> = ({
                 href={PERSONAL_INFO.leetcode}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="p-2 text-zinc-600 dark:text-zinc-300 hover:text-amber-500 dark:hover:text-amber-400 hover:bg-zinc-100 dark:hover:bg-zinc-900 rounded-lg transition-colors flex items-center gap-1.5 text-xs font-semibold"
+                className="p-2 text-[#6B3F25] hover:text-[#2B211B] hover:bg-[#F3EDE2] border border-[#EADBCE] rounded-lg transition-colors flex items-center gap-1.5 text-xs font-semibold"
                 aria-label="Aditya Prakash LeetCode Profile"
                 title="View LeetCode Profile"
               >
@@ -153,7 +171,7 @@ export const Navbar: React.FC<NavbarProps> = ({
                 href={PERSONAL_INFO.github}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="p-2 text-zinc-600 dark:text-zinc-300 hover:text-zinc-900 dark:hover:text-white hover:bg-zinc-100 dark:hover:bg-zinc-900 rounded-lg transition-colors"
+                className="p-2 text-[#6B3F25] hover:text-[#2B211B] hover:bg-[#F3EDE2] border border-[#EADBCE] rounded-lg transition-colors"
                 aria-label="Aditya Prakash GitHub Profile"
                 title="View GitHub Profile"
               >
@@ -164,7 +182,7 @@ export const Navbar: React.FC<NavbarProps> = ({
               <button
                 id="nav-resume-btn"
                 onClick={handleDownloadPDF}
-                className="inline-flex items-center gap-2 px-4 py-2 text-xs font-bold uppercase tracking-wider text-white bg-red-600 hover:bg-red-700 active:bg-red-800 rounded-lg shadow-md shadow-red-600/20 dark:shadow-red-950/40 transition-all cursor-pointer"
+                className="inline-flex items-center gap-2 px-4 py-2 text-xs font-semibold tracking-wider text-white rounded-lg shadow-sm transition-all cursor-pointer hover:bg-[#D06316] active:scale-95 bg-[#E87524]"
               >
                 <Download className="w-3.5 h-3.5" />
                 <span>Resume PDF</span>
@@ -175,10 +193,10 @@ export const Navbar: React.FC<NavbarProps> = ({
             <div className="flex items-center gap-2 lg:hidden">
               <button
                 onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-                className="p-2 text-zinc-900 dark:text-white hover:bg-zinc-100 dark:hover:bg-zinc-900 rounded-lg"
+                className="p-2 text-[#2B211B] hover:bg-[#F3EDE2] rounded-lg border border-[#EADBCE]"
                 aria-label={mobileMenuOpen ? 'Close menu' : 'Open menu'}
               >
-                {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+                {mobileMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
               </button>
             </div>
 
@@ -190,7 +208,7 @@ export const Navbar: React.FC<NavbarProps> = ({
       {mobileMenuOpen && (
         <div 
           id="mobile-nav-drawer"
-          className="lg:hidden bg-white/98 dark:bg-zinc-950/98 backdrop-blur-xl border-b border-zinc-200 dark:border-zinc-800 px-4 pt-3 pb-6 space-y-3 shadow-2xl"
+          className="lg:hidden bg-[#FAF7F0] border-b border-[#EADBCE] px-4 pt-3 pb-6 space-y-3 shadow-lg"
         >
           <div className="flex flex-col space-y-1">
             {navLinks.map((link) => (
@@ -198,20 +216,20 @@ export const Navbar: React.FC<NavbarProps> = ({
                 key={link.name}
                 href={link.href}
                 onClick={() => setMobileMenuOpen(false)}
-                className="px-4 py-2.5 text-sm font-semibold uppercase tracking-wider text-zinc-800 dark:text-zinc-200 hover:bg-zinc-100 dark:hover:bg-zinc-900 hover:text-red-600 dark:hover:text-red-400 rounded-lg transition-colors text-left"
+                className="px-4 py-2.5 text-[15px] font-semibold text-[#2B211B] hover:bg-[#F3EDE2] rounded-lg transition-colors text-left"
               >
                 {link.name}
               </a>
             ))}
           </div>
 
-          <div className="pt-3 border-t border-zinc-200 dark:border-zinc-800 flex flex-col gap-2.5">
+          <div className="pt-3 border-t border-[#EADBCE] flex flex-col gap-2.5">
             <button
               onClick={() => {
                 setMobileMenuOpen(false);
                 handleDownloadPDF();
               }}
-              className="w-full py-2.5 px-4 flex items-center justify-center gap-2 text-xs font-bold uppercase tracking-wider text-white bg-red-600 hover:bg-red-700 rounded-lg shadow-sm"
+              className="w-full py-2.5 px-4 flex items-center justify-center gap-2 text-xs font-semibold tracking-wider text-white rounded-lg shadow-sm cursor-pointer bg-[#E87524] hover:bg-[#D06316]"
             >
               <Download className="w-4 h-4" />
               Download Resume (PDF)
@@ -222,7 +240,7 @@ export const Navbar: React.FC<NavbarProps> = ({
                 href={PERSONAL_INFO.vercel}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="py-2 px-1.5 flex items-center justify-center gap-1 text-[11px] font-bold text-zinc-800 dark:text-zinc-200 bg-zinc-100 dark:bg-zinc-900 hover:bg-zinc-200 dark:hover:bg-zinc-800 rounded-lg"
+                className="py-2 px-1.5 flex items-center justify-center gap-1 text-[11px] font-semibold text-[#2B211B] bg-[#FFFCF7] border border-[#EADBCE] hover:bg-[#F3EDE2] rounded-lg"
               >
                 <svg className="w-3.5 h-3.5 fill-current" viewBox="0 0 24 24">
                   <path d="M12 1L24 22H0L12 1Z" />
@@ -233,16 +251,16 @@ export const Navbar: React.FC<NavbarProps> = ({
                 href={PERSONAL_INFO.linkedin}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="py-2 px-1.5 flex items-center justify-center gap-1 text-[11px] font-bold text-zinc-800 dark:text-zinc-200 bg-zinc-100 dark:bg-zinc-900 hover:bg-zinc-200 dark:hover:bg-zinc-800 rounded-lg"
+                className="py-2 px-1.5 flex items-center justify-center gap-1 text-[11px] font-semibold text-[#2B211B] bg-[#FFFCF7] border border-[#EADBCE] hover:bg-[#F3EDE2] rounded-lg"
               >
-                <Linkedin className="w-3.5 h-3.5 text-red-600 dark:text-red-500" />
+                <Linkedin className="w-3.5 h-3.5 text-[#E87524]" />
                 LinkedIn
               </a>
               <a
                 href={PERSONAL_INFO.leetcode}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="py-2 px-1.5 flex items-center justify-center gap-1 text-[11px] font-bold text-zinc-800 dark:text-zinc-200 bg-zinc-100 dark:bg-zinc-900 hover:bg-zinc-200 dark:hover:bg-zinc-800 rounded-lg"
+                className="py-2 px-1.5 flex items-center justify-center gap-1 text-[11px] font-semibold text-[#2B211B] bg-[#FFFCF7] border border-[#EADBCE] hover:bg-[#F3EDE2] rounded-lg"
               >
                 <SkillLogo name="leetcode" className="w-3.5 h-3.5" />
                 LeetCode
@@ -251,7 +269,7 @@ export const Navbar: React.FC<NavbarProps> = ({
                 href={PERSONAL_INFO.github}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="py-2 px-1.5 flex items-center justify-center gap-1 text-[11px] font-bold text-zinc-800 dark:text-zinc-200 bg-zinc-100 dark:bg-zinc-900 hover:bg-zinc-200 dark:hover:bg-zinc-800 rounded-lg"
+                className="py-2 px-1.5 flex items-center justify-center gap-1 text-[11px] font-semibold text-[#2B211B] bg-[#FFFCF7] border border-[#EADBCE] hover:bg-[#F3EDE2] rounded-lg"
               >
                 <Github className="w-3.5 h-3.5" />
                 GitHub

@@ -1,0 +1,111 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 700" width="1000" height="700">
+  <defs>
+    <linearGradient id="infoBg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#FCFDFF" />
+      <stop offset="50%" stop-color="#FFFFFF" />
+      <stop offset="100%" stop-color="#F2F8FD" />
+    </linearGradient>
+    <linearGradient id="infosysBlue" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#00639C" />
+      <stop offset="100%" stop-color="#007CC3" />
+    </linearGradient>
+    <linearGradient id="goldAcc" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#C59B27" />
+      <stop offset="100%" stop-color="#E5C158" />
+    </linearGradient>
+  </defs>
+
+  <!-- Background -->
+  <rect width="1000" height="700" fill="url(#infoBg)" />
+
+  <!-- Borders -->
+  <rect x="25" y="25" width="950" height="650" rx="4" fill="none" stroke="url(#infosysBlue)" stroke-width="4" />
+  <rect x="35" y="35" width="930" height="630" fill="none" stroke="#E2E8F0" stroke-width="1.5" />
+  <rect x="42" y="42" width="916" height="616" fill="none" stroke="url(#goldAcc)" stroke-dasharray="8,4" stroke-width="1.5" />
+
+  <!-- Infosys Springboard Header -->
+  <g transform="translate(80, 70)">
+    <text x="0" y="30" font-family="sans-serif" font-size="28" font-weight="900" fill="#007CC3" letter-spacing="-0.5">Infosys</text>
+    <text x="110" y="22" font-family="sans-serif" font-size="12" font-weight="bold" fill="#00639C" letter-spacing="1">SPRINGBOARD</text>
+    <text x="110" y="36" font-family="sans-serif" font-size="9" font-style="italic" fill="#64748B">Navigate your next</text>
+  </g>
+
+  <!-- Certificate Badge -->
+  <g transform="translate(820, 65)">
+    <circle cx="40" cy="40" r="32" fill="#007CC3" />
+    <circle cx="40" cy="40" r="26" fill="#FFFFFF" />
+    <text x="40" y="37" font-family="sans-serif" font-size="8" font-weight="bold" fill="#007CC3" text-anchor="middle">COURSE</text>
+    <text x="40" y="48" font-family="sans-serif" font-size="7" font-weight="bold" fill="#C59B27" text-anchor="middle">COMPLETION</text>
+  </g>
+
+  <text x="500" y="180" font-family="sans-serif" font-size="14" font-weight="800" letter-spacing="4" fill="#007CC3" text-anchor="middle">
+    CERTIFICATE OF COMPLETION
+  </text>
+  <line x1="380" y1="195" x2="620" y2="195" stroke="url(#goldAcc)" stroke-width="2" />
+
+  <text x="500" y="240" font-family="serif" font-size="16" font-style="italic" fill="#64748B" text-anchor="middle">
+    Congratulations! You have successfully completed
+  </text>
+
+  <!-- Course Title -->
+  <text x="500" y="295" font-family="sans-serif" font-size="34" font-weight="800" fill="#0F172A" text-anchor="middle">
+    Database Management System Part - 1
+  </text>
+  <text x="500" y="325" font-family="sans-serif" font-size="14" fill="#64748B" text-anchor="middle">
+    Relational Data Modeling • SQL Optimization • Data Integrity
+  </text>
+
+  <text x="500" y="375" font-family="serif" font-size="16" font-style="italic" fill="#64748B" text-anchor="middle">
+    Awarded to
+  </text>
+
+  <!-- Recipient -->
+  <text x="500" y="430" font-family="serif" font-size="44" font-weight="bold" fill="#007CC3" text-anchor="middle">
+    Aditya Prakash
+  </text>
+  <line x1="280" y1="445" x2="720" y2="445" stroke="#CBD5E1" stroke-width="1" />
+
+  <!-- Skills -->
+  <g transform="translate(180, 480)">
+    <rect x="0" y="0" width="150" height="26" rx="13" fill="#E0F2FE" stroke="#BAE6FD" />
+    <text x="75" y="17" font-family="sans-serif" font-size="11" font-weight="600" fill="#0369A1" text-anchor="middle">RDBMS Architecture</text>
+
+    <rect x="160" y="0" width="160" height="26" rx="13" fill="#E0F2FE" stroke="#BAE6FD" />
+    <text x="240" y="17" font-family="sans-serif" font-size="11" font-weight="600" fill="#0369A1" text-anchor="middle">SQL Queries &amp; Joins</text>
+
+    <rect x="330" y="0" width="160" height="26" rx="13" fill="#E0F2FE" stroke="#BAE6FD" />
+    <text x="410" y="17" font-family="sans-serif" font-size="11" font-weight="600" fill="#0369A1" text-anchor="middle">Relational Modeling</text>
+
+    <rect x="500" y="0" width="150" height="26" rx="13" fill="#E0F2FE" stroke="#BAE6FD" />
+    <text x="575" y="17" font-family="sans-serif" font-size="11" font-weight="600" fill="#0369A1" text-anchor="middle">Database Normalization</text>
+  </g>
+
+  <!-- Signatures -->
+  <g transform="translate(160, 550)">
+    <path d="M 10 32 Q 50 12, 100 28 T 170 20" fill="none" stroke="#007CC3" stroke-width="2" />
+    <line x1="0" y1="42" x2="220" y2="42" stroke="#94A3B8" stroke-width="1" />
+    <text x="110" y="58" font-family="sans-serif" font-size="11" font-weight="bold" fill="#1E293B" text-anchor="middle">Satheesha B. Nanjappa</text>
+    <text x="110" y="72" font-family="sans-serif" font-size="10" fill="#64748B" text-anchor="middle">Senior Vice President &amp; Head ETA</text>
+    <text x="110" y="85" font-family="sans-serif" font-size="9" fill="#94A3B8" text-anchor="middle">Infosys Limited</text>
+  </g>
+
+  <!-- Seal -->
+  <g transform="translate(500, 565)">
+    <circle cx="0" cy="0" r="32" fill="#007CC3" />
+    <circle cx="0" cy="0" r="26" fill="#FFFFFF" />
+    <text x="0" y="4" font-family="sans-serif" font-size="9" font-weight="900" fill="#007CC3" text-anchor="middle">INFOSYS</text>
+  </g>
+
+  <g transform="translate(640, 550)">
+    <path d="M 10 30 Q 60 15, 110 35 T 180 22" fill="none" stroke="#1E293B" stroke-width="2" />
+    <line x1="0" y1="42" x2="220" y2="42" stroke="#94A3B8" stroke-width="1" />
+    <text x="110" y="58" font-family="sans-serif" font-size="11" font-weight="bold" fill="#1E293B" text-anchor="middle">Infosys Springboard</text>
+    <text x="110" y="72" font-family="sans-serif" font-size="10" fill="#64748B" text-anchor="middle">Digital Academy</text>
+  </g>
+
+  <!-- Footer -->
+  <g transform="translate(80, 650)">
+    <text x="0" y="0" font-family="monospace" font-size="10" fill="#64748B">Completed: July 14, 2026 | Issued: July 15, 2026</text>
+    <text x="840" y="0" font-family="monospace" font-size="10" fill="#007CC3" text-anchor="end">springboard.infosys.com</text>
+  </g>
+</svg>
